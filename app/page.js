@@ -7,12 +7,7 @@ export default function Home() {
       <div className={styles.videoWrapper}>
         <video width="320" height="240" controls className={styles.video}>
           <source src="./videos/timelapse_london.mp4" type="video/mp4" />
-          {/* <source
-          src="https://www.shutterstock.com/de/video/clip-415348-famous-london-phone-box-people-rushing-by"
-
-        /> */}
           <track kind="captions" label="timelapse from London city" />
-          {/* <track kind="captions" label="timelapse from London city" /> */}
           Your browser does not support the video tag.
         </video>
 
