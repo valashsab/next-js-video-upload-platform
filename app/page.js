@@ -1,4 +1,4 @@
-// import Image from 'next/image';
+import Link from 'next/link';
 import Header from './Header/Header';
 import styles from './page.module.css';
 
@@ -37,8 +37,16 @@ export default function Home() {
         <br />
         <br />
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>Sign up</button>
-          <button className={styles.button}>Login</button>
+          <Link href="/signup">
+            <div>
+              <button className={styles.button}>Sign up</button>
+            </div>
+          </Link>
+          <Link href="/login">
+            <div>
+              <button className={styles.button}>Login</button>
+            </div>
+          </Link>
         </div>
       </section>
     </main>

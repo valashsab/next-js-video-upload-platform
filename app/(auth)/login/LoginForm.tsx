@@ -37,9 +37,11 @@ export default function LoginForm(props: Props) {
     //   router.push(props.returnTo);
     // }
 
-    router.push(
-      getSafeReturnToPath(props.returnTo) || `/dashboard/${data.user.email}`,
-    );
+    // TO DEBUG !!!!!!!!!!!!
+    // router.push(
+    //   getSafeReturnToPath(props.returnTo) || `/dashboard/${data.user.email}`,
+    // );
+    router.push(getSafeReturnToPath(props.returnTo) || '/');
   }
 
   return (
