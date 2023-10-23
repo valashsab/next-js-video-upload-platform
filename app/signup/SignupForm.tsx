@@ -1,9 +1,9 @@
-import styles from './page.module.scss';
+'use client';
+import styles from './SignupForm.module.scss';
 
-export default function signUpPage() {
+export default function SignupForm() {
   return (
     <div>
-      <h1>Sign up</h1>
       <form>
         <label className={styles.label} htmlFor="firstName">
           First name

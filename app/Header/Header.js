@@ -27,16 +27,12 @@ export default function Header() {
           </li>
           <li className="navProductsAbout">
             <Link className="headerCredentialButtons" href="/signup">
-              <div>
-                <button>Sign up</button>
-              </div>
+              Sign up
             </Link>
           </li>
           <li>
             <Link className="headerCredentialButtons" href="/login">
-              <div>
-                <button>Login</button>
-              </div>
+              Login
             </Link>
           </li>
         </ul>
