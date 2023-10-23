@@ -14,10 +14,6 @@ class MyDocument extends Document {
             defer
             src="https://upload-widget.cloudinary.com/global/all.js"
             type="text/javascript"
-            // new to fix error: TypeError: Cannot read properties of undefined (reading 'createUploadWidget')
-            // onLoad={() => {
-            //   window.cloudinary = require('cloudinary-core');
-            // }}
           />
         </Head>
         <body>
