@@ -1,6 +1,6 @@
 import { cache } from 'react';
+import { User } from '../../migrations/00000-createTableusers';
 import { sql } from '../database/connect';
-import { User } from '../migrations/00000-createTableusers';
 
 export type UserWithPasswordHash = User & {
   passwordHash: string;
@@ -14,7 +14,7 @@ export const createUser = cache(async (email: string, passwordHash: string) => {
         (${email.toLowerCase()}, ${passwordHash})
       RETURNING
         id,
-        username
+        email
     `;
   return user;
 });
@@ -27,7 +27,7 @@ export const getUserByEmail = cache(async (email: string) => {
     FROM
       users
     WHERE
-      username = ${email.toLowerCase()}
+      email = ${email.toLowerCase()}
   `;
   return user;
 });
@@ -39,7 +39,7 @@ export const getUserWithPasswordHashByEmail = cache(async (email: string) => {
     FROM
       users
     WHERE
-      username = ${email.toLowerCase()}
+      email = ${email.toLowerCase()}
   `;
   return user;
 });
