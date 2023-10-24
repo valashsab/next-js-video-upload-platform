@@ -2,9 +2,10 @@ import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { User } from '../../../../migrations/00000-createTableUsers';
-import { createUser, getUserByEmail } from '../../../database/users';
+import { createUser, getUserByUserName } from '../../../database/users';
 
 const signupSchema = z.object({
+  userName: z.string().min(3),
   firstName: z.string().min(3),
   lastName: z.string().min(3),
   dateOfBirth: z.coerce.date(),
@@ -42,7 +43,7 @@ export async function POST(
   }
 
   // 3. Check if user already exist in the database
-  const user = await getUserByEmail(result.data.email);
+  const user = await getUserByUserName(result.data.email);
 
   if (user) {
     return NextResponse.json(
@@ -57,6 +58,7 @@ export async function POST(
   const passwordHash = await bcrypt.hash(result.data.password, 12);
   // 5. Save the user information with the hashed password in the database
   const newUser = await createUser(
+    result.data.userName,
     result.data.firstName,
     result.data.lastName,
     result.data.dateOfBirth,

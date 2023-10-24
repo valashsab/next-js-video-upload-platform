@@ -1,16 +1,16 @@
 import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { getUserWithPasswordHashByEmail } from '../../../database/users';
+import { getUserWithPasswordHashByUserName } from '../../../database/users';
 
 const loginSchema = z.object({
-  email: z.string().min(3),
+  userName: z.string().min(3),
   password: z.string().min(3),
 });
 
 export type LoginResponseBodyPost =
   | {
-      user: { email: string };
+      user: { userName: string };
     }
   | {
       errors: { message: string }[];
@@ -39,13 +39,13 @@ export async function POST(
   }
 
   // 3. verify the user credentials
-  const userWithPasswordHash = await getUserWithPasswordHashByEmail(
-    result.data.email,
+  const userWithPasswordHash = await getUserWithPasswordHashByUserName(
+    result.data.userName,
   );
 
   if (!userWithPasswordHash) {
     return NextResponse.json(
-      { errors: [{ message: 'email or password not valid' }] },
+      { errors: [{ message: 'user name or password not valid' }] },
       { status: 403 },
     );
   }
@@ -58,7 +58,7 @@ export async function POST(
 
   if (!isPasswordValid) {
     return NextResponse.json(
-      { errors: [{ message: 'email or password not valid' }] },
+      { errors: [{ message: 'user name or password not valid' }] },
       {
         status: 401,
       },
@@ -72,7 +72,7 @@ export async function POST(
   // 6. Return the new user information without the password hash
   return NextResponse.json({
     user: {
-      email: userWithPasswordHash.email,
+      userName: userWithPasswordHash.userName,
     },
   });
 }

@@ -5,6 +5,7 @@ import { SignupResponseBodyPost } from '../../api/(auth)/signup/route';
 import styles from './SignupForm.module.scss';
 
 export default function SignupForm() {
+  const [userName, setUserName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +20,7 @@ export default function SignupForm() {
     const response = await fetch('/api/signup', {
       method: 'POST',
       body: JSON.stringify({
+        userName,
         firstName,
         lastName,
         dateOfBirth: new Date(dateOfBirth),
@@ -34,13 +36,23 @@ export default function SignupForm() {
       return;
     }
 
-    // error message to be debugged!!!
-    // router.push(`/dashboard/${data.user.email}`);
-    router.push('/');
+    router.push(`/dashboard/${data.user.firstName}`);
   }
   console.log('Date: ', dateOfBirth);
   return (
     <form onSubmit={async (event) => await handleSignup(event)}>
+      <label className={styles.label} htmlFor="userName">
+        User name
+      </label>
+      <input
+        className={styles.input}
+        id="userName"
+        name="userName"
+        pattern="[A-Za-z]+"
+        onChange={(event) => setUserName(event.currentTarget.value)}
+        required
+      />
+      <br />
       <label className={styles.label} htmlFor="firstName">
         First name
       </label>

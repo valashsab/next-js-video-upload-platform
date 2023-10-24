@@ -8,6 +8,7 @@ export type UserWithPasswordHash = User & {
 
 export const createUser = cache(
   async (
+    userName: string,
     firstName: string,
     lastName: string,
     dateOfBirth: Date,
@@ -16,11 +17,12 @@ export const createUser = cache(
   ) => {
     const [user] = await sql<User[]>`
       INSERT INTO users
-        (first_name, last_name, date_of_birth, email, password_hash)
+        (user_name, first_name, last_name, date_of_birth, email, password_hash)
       VALUES
-        (${firstName}, ${lastName}, ${dateOfBirth}, ${email.toLowerCase()}, ${passwordHash})
+        (${userName}, ${firstName}, ${lastName}, ${dateOfBirth}, ${email.toLowerCase()}, ${passwordHash})
       RETURNING
         id,
+        user_name
         first_name,
         last_name,
         date_of_birth,
@@ -30,27 +32,29 @@ export const createUser = cache(
   },
 );
 
-export const getUserByEmail = cache(async (email: string) => {
+export const getUserByUserName = cache(async (userName: string) => {
   const [user] = await sql<User[]>`
     SELECT
       id,
-      email
+      user_name
     FROM
       users
     WHERE
-      email = ${email.toLowerCase()}
+      email = ${userName.toLowerCase()}
   `;
   return user;
 });
 
-export const getUserWithPasswordHashByEmail = cache(async (email: string) => {
-  const [user] = await sql<UserWithPasswordHash[]>`
+export const getUserWithPasswordHashByUserName = cache(
+  async (userName: string) => {
+    const [user] = await sql<UserWithPasswordHash[]>`
     SELECT
       *
     FROM
       users
     WHERE
-      email = ${email.toLowerCase()}
+      user_name = ${userName.toLowerCase()}
   `;
-  return user;
-});
+    return user;
+  },
+);

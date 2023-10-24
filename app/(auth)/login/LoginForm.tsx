@@ -1,14 +1,13 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { getSafeReturnToPath } from '../../../util/validation';
 import { LoginResponseBodyPost } from '../../api/(auth)/login/route';
 import styles from './LoginForm.module.scss';
 
 type Props = { returnTo?: string | string[] };
 
 export default function LoginForm(props: Props) {
-  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
   const router = useRouter();
@@ -19,7 +18,7 @@ export default function LoginForm(props: Props) {
     const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({
-        email,
+        userName,
         password,
       }),
     });
@@ -41,21 +40,21 @@ export default function LoginForm(props: Props) {
     // router.push(
     //   getSafeReturnToPath(props.returnTo) || `/dashboard/${data.user.email}`,
     // );
-    router.push(getSafeReturnToPath(props.returnTo) || '/');
+    // router.push(getSafeReturnToPath(props.returnTo) || '/');
+    router.push(`/dashboard/${data.user.userName}`);
   }
 
   return (
     <div>
       <form onSubmit={async (event) => await handleLogin(event)}>
-        <label className={styles.label} htmlFor="email">
-          Email
+        <label className={styles.label} htmlFor="userName">
+          User name
         </label>
         <input
           className={styles.input}
-          type="email"
-          id="email"
-          name="email"
-          onChange={(event) => setEmail(event.currentTarget.value)}
+          id="userName"
+          name="userName"
+          onChange={(event) => setUserName(event.currentTarget.value)}
           required
         />
         <br />
@@ -64,6 +63,7 @@ export default function LoginForm(props: Props) {
         </label>
         <input
           className={styles.input}
+          type="password"
           id="password"
           name="password"
           onChange={(event) => setPassword(event.currentTarget.value)}
