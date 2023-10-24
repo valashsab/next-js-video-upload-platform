@@ -72,7 +72,6 @@ export default function SignupForm() {
         className={styles.input}
         id="dateOfBirth"
         name="dateOfBirth"
-        // pattern="[A-Za-z]+"
         onChange={(event) => setDateOfBirth(event.currentTarget.value)}
         required
       />

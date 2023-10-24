@@ -6,18 +6,30 @@ export type UserWithPasswordHash = User & {
   passwordHash: string;
 };
 
-export const createUser = cache(async (email: string, passwordHash: string) => {
-  const [user] = await sql<User[]>`
+export const createUser = cache(
+  async (
+    firstName: string,
+    lastName: string,
+    // timestamp in sql but in js?
+    dateOfBirth: Date,
+    email: string,
+    passwordHash: string,
+  ) => {
+    const [user] = await sql<User[]>`
       INSERT INTO users
-        (email, password_hash)
+        (first_name, last_name, date_of_birth, email, password_hash)
       VALUES
-        (${email.toLowerCase()}, ${passwordHash})
+        (${firstName}, ${lastName}, ${dateOfBirth}, ${email.toLowerCase()}, ${passwordHash})
       RETURNING
         id,
+        first_name,
+        last_name,
+        date_of_birth,
         email
     `;
-  return user;
-});
+    return user;
+  },
+);
 
 export const getUserByEmail = cache(async (email: string) => {
   const [user] = await sql<User[]>`
