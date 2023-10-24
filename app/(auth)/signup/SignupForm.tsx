@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { SignupResponseBodyPost } from '../../api/(auth)/register/route';
+import { SignupResponseBodyPost } from '../../api/(auth)/signup/route';
 import styles from './SignupForm.module.scss';
 
 export default function SignupForm() {
@@ -38,6 +38,7 @@ export default function SignupForm() {
     // router.push(`/dashboard_videos/${data.user.email}`);
     router.push('/');
   }
+
   return (
     <form onSubmit={async (event) => await handleSignup(event)}>
       <label className={styles.label} htmlFor="firstName">

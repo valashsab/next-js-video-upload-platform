@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { User } from '../../../../migrations/00000-createTableusers';
+import { User } from '../../../../migrations/00000-createTableUsers';
 import { createUser, getUserByEmail } from '../../../database/users';
 
 const signupSchema = z.object({
