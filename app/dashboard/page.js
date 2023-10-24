@@ -1,4 +1,3 @@
-'use client';
 import { VideoUpload } from './VideoUpload';
 
 export default function dashboardPage() {
