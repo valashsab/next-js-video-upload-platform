@@ -1,6 +1,7 @@
 'use client';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+// import { z } from 'zod';
 import { SignupResponseBodyPost } from '../../api/(auth)/signup/route';
 import styles from './SignupForm.module.scss';
 
@@ -11,7 +12,7 @@ export default function SignupForm() {
   const [password, setPassword] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
-  const router = useRouter();
+  // const router = useRouter();
 
   async function handleSignup(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -23,7 +24,7 @@ export default function SignupForm() {
         lastName,
         email,
         password,
-        dateOfBirth,
+        dateOfBirth: new Date(dateOfBirth),
       }),
     });
 
@@ -35,10 +36,10 @@ export default function SignupForm() {
     }
 
     // error message to be debugged!!!
-    // router.push(`/dashboard_videos/${data.user.email}`);
-    router.push('/');
+    // router.push(`/dashboard/${data.user.email}`);
+    // router.push('/');
   }
-
+  console.log('Date: ', dateOfBirth);
   return (
     <form onSubmit={async (event) => await handleSignup(event)}>
       <label className={styles.label} htmlFor="firstName">
@@ -70,6 +71,7 @@ export default function SignupForm() {
       </label>
       <input
         className={styles.input}
+        type="date"
         id="dateOfBirth"
         name="dateOfBirth"
         onChange={(event) => setDateOfBirth(event.currentTarget.value)}

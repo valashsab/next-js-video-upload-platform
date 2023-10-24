@@ -9,7 +9,7 @@ const signupSchema = z.object({
   password: z.string().min(3),
   firstName: z.string(),
   lastName: z.string(),
-  dateOfBirth: z.date(),
+  dateOfBirth: z.coerce.date(),
 });
 
 export type SignupResponseBodyPost =
@@ -27,6 +27,7 @@ export async function POST(
 
   // 1. Get the user data from the request
   const body = await request.json();
+  console.log('Body: ', body);
 
   // 2. Validate the user data
   const result = signupSchema.safeParse(body);
@@ -56,7 +57,13 @@ export async function POST(
   const passwordHash = await bcrypt.hash(result.data.password, 12);
 
   // 5. Save the user information with the hashed password in the database
-  const newUser = await createUser(result.data.email, passwordHash);
+  const newUser = await createUser(
+    result.data.firstName,
+    result.data.lastName,
+    result.data.dateOfBirth,
+    result.data.email,
+    passwordHash,
+  );
 
   if (!newUser) {
     return NextResponse.json(
