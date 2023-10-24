@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { getSafeReturnToPath } from '../../../util/validation';
 import { LoginResponseBodyPost } from '../../api/(auth)/login/route';
 import styles from './LoginForm.module.scss';
 
@@ -37,11 +38,9 @@ export default function LoginForm(props: Props) {
     // }
 
     // TO DEBUG !!!!!!!!!!!!
-    // router.push(
-    //   getSafeReturnToPath(props.returnTo) || `/dashboard/${data.user.email}`,
-    // );
-    // router.push(getSafeReturnToPath(props.returnTo) || '/');
-    router.push(`/dashboard/${data.user.userName}`);
+    router.push(
+      getSafeReturnToPath(props.returnTo) || `/dashboard/${data.user.userName}`,
+    );
   }
 
   return (

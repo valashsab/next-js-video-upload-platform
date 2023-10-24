@@ -1,11 +1,9 @@
 import Link from 'next/link';
-import Header from './Header/Header';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 export default function Home() {
   return (
     <main>
-      <Header />
       <section className={styles.videoContainer}>
         <div className={styles.videoWrapper}>
           <video width="320" height="240" controls className={styles.video}>
