@@ -13,7 +13,7 @@ export async function up(sql: Sql) {
       password_hash varchar(80) NOT NULL,
       first_name varchar(50) NOT NULL,
       last_name varchar(50) NOT NULL,
-      date_of_birth timestamp
+      date_of_birth timestamp NOT NULL
     );
   `;
 }

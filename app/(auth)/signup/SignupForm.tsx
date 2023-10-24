@@ -1,7 +1,6 @@
 'use client';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-// import { z } from 'zod';
 import { SignupResponseBodyPost } from '../../api/(auth)/signup/route';
 import styles from './SignupForm.module.scss';
 
@@ -12,7 +11,7 @@ export default function SignupForm() {
   const [password, setPassword] = useState('');
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
-  // const router = useRouter();
+  const router = useRouter();
 
   async function handleSignup(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,9 +21,9 @@ export default function SignupForm() {
       body: JSON.stringify({
         firstName,
         lastName,
+        dateOfBirth: new Date(dateOfBirth),
         email,
         password,
-        dateOfBirth: new Date(dateOfBirth),
       }),
     });
 
@@ -37,7 +36,7 @@ export default function SignupForm() {
 
     // error message to be debugged!!!
     // router.push(`/dashboard/${data.user.email}`);
-    // router.push('/');
+    router.push('/');
   }
   console.log('Date: ', dateOfBirth);
   return (
@@ -104,7 +103,9 @@ export default function SignupForm() {
       <br />
       <button className={styles.signUpButton}>Sign up</button>
       {errors.map((error) => (
-        <div key={`error-${error.message}`}>Error: {error.message}</div>
+        <div className="error" key={`error-${error.message}`}>
+          Error: {error.message}
+        </div>
       ))}
     </form>
   );

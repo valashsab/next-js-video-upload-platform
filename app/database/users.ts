@@ -10,7 +10,6 @@ export const createUser = cache(
   async (
     firstName: string,
     lastName: string,
-    // timestamp in sql but in js?
     dateOfBirth: Date,
     email: string,
     passwordHash: string,

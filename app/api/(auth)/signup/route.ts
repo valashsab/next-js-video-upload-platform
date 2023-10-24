@@ -5,11 +5,11 @@ import { User } from '../../../../migrations/00000-createTableUsers';
 import { createUser, getUserByEmail } from '../../../database/users';
 
 const signupSchema = z.object({
+  firstName: z.string().min(3),
+  lastName: z.string().min(3),
+  dateOfBirth: z.coerce.date(),
   email: z.string().min(3),
   password: z.string().min(3),
-  firstName: z.string(),
-  lastName: z.string(),
-  dateOfBirth: z.coerce.date(),
 });
 
 export type SignupResponseBodyPost =
@@ -55,7 +55,6 @@ export async function POST(
 
   // 4. Hash the plain password from the user
   const passwordHash = await bcrypt.hash(result.data.password, 12);
-
   // 5. Save the user information with the hashed password in the database
   const newUser = await createUser(
     result.data.firstName,
