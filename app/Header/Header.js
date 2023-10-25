@@ -16,8 +16,11 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
-    <header>
-      <nav>
+    <header className="bg-black">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <ul>
           <li>
             <Link className="headerLinks" href="/">
@@ -37,6 +40,14 @@ export default async function Header() {
           </li> */}
         </ul>
         <br />
+        <div>
+          <form>
+            <label id="searchBar" name="searchBar" htmlFor="searchBar">
+              Search
+            </label>
+            <input id="searchBar" name="searchBar" />
+          </form>
+        </div>
         <br />
         <br />
 

@@ -53,7 +53,8 @@ export default function LoginForm(props: Props) {
           User name
         </label>
         <input
-          className={styles.input}
+          className="text-center text-gre"
+          // className={styles.input}
           id="userName"
           name="userName"
           onChange={(event) => setUserName(event.currentTarget.value)}
