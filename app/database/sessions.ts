@@ -27,3 +27,17 @@ export const createSession = cache(async (userId: number, token: string) => {
 
   return session;
 });
+
+export const deleteSessionByToken = cache(async (token: string) => {
+  const [session] = await sql<{ id: number; token: string }[]>`
+    DELETE FROM
+      sessions
+    WHERE
+      sessions.token = ${token}
+    RETURNING
+      id,
+      token
+  `;
+
+  return session;
+});

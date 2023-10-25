@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LogoutButton from '../api/(auth)/logout/LogoutButton';
 
 export default function Header() {
   return (
@@ -17,6 +18,9 @@ export default function Header() {
           </li>
           <li>
             <Link href="/login">Login</Link>
+          </li>
+          <li>
+            <LogoutButton />
           </li>
         </ul>
       </nav>
