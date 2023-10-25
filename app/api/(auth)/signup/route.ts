@@ -1,7 +1,11 @@
+import crypto from 'node:crypto';
 import bcrypt from 'bcrypt';
+import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { User } from '../../../../migrations/00000-createTableUsers';
+import { secureCookieOptions } from '../../../../util/cookies';
+import { createSession } from '../../../database/sessions';
 import { createUser, getUserByUserName } from '../../../database/users';
 
 const signupSchema = z.object({
@@ -72,6 +76,38 @@ export async function POST(
       { status: 406 },
     );
   }
+
+  // 4. Create a token
+  const token = crypto.randomBytes(100).toString('base64');
+
+  // 5. Create the session record
+  const session = await createSession(newUser.id, token);
+
+  if (!session) {
+    return NextResponse.json(
+      { errors: [{ message: 'Error creating the new session' }] },
+      {
+        status: 401,
+      },
+    );
+  }
+
+  // 6. Send the new cookie in the headers -> in util/cookies.ts to in order to be reused
+  // cookies().set({
+  //   name: 'sessionToken',
+  //   value: session.token,
+  //   httpOnly: true,
+  //   path: '/',
+  //   secure: process.env.NODE_ENV === 'production',
+  //   maxAge: 60 * 60 * 24, // Expires in 24 hours,
+  //   sameSite: 'lax', // this prevents CSRF attacks
+  // });
+
+  cookies().set({
+    name: 'sessionToken',
+    value: session.token,
+    ...secureCookieOptions,
+  });
 
   // 6. Return the new user information without the password hash
   return NextResponse.json({
