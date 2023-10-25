@@ -36,7 +36,11 @@ export default function SignupForm() {
       return;
     }
 
-    router.push(`/dashboard/${data.user.firstName}`);
+    router.push(`/dashboard/${data.user.userName}`);
+
+    // revalidatePath() throws unnecessary error, will be used when stable
+    // revalidatePath('/(auth)/login', 'page');
+    router.refresh();
   }
   console.log('Date: ', dateOfBirth);
   return (
