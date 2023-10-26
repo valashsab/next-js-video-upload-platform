@@ -34,15 +34,15 @@ export default function Home() {
         </div>
         <br />
         <br />
-        <div className={styles.buttonContainer}>
+        <div className="flex flex-row gap-4 ">
           <Link href="/signup">
             <div>
-              <button className={styles.button}>Sign up</button>
+              <button className="btn btn-primary">Sign up</button>
             </div>
           </Link>
           <Link href="/login">
             <div>
-              <button className={styles.button}>Login</button>
+              <button className="btn btn-secondary">Login</button>
             </div>
           </Link>
         </div>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: 'Inconsolata';
   font-style: normal;
   font-weight: 200;
@@ -34,7 +34,7 @@ nav ul {
 nav li {
   display: flex;
   align-items: center; /* Vertically align items within list items */
-}
+/* }
 
 .navHome {
   background-color: #b8d8be;
@@ -52,4 +52,4 @@ nav li {
 .error {
   color: red;
   background: grey;
-}
+} */

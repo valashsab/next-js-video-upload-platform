@@ -5,8 +5,15 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
-    extend: {},
+  daisyui: {
+    themes: [
+      {
+        myTheme: {
+          primary: '#000000',
+          secondary: '#808080',
+        },
+      },
+    ],
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('daisyui'), require('@tailwindcss/forms')], // plugins: [require('@tailwindcss/forms', 'daisyui')],
 };
