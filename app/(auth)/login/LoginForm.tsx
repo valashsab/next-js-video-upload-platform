@@ -107,7 +107,7 @@ export default function LoginForm(props: Props) {
             </div>
             {errors.map((error) => (
               <div
-                className="alert alert-error border-2 border-red-500 bg-red-100 text-red-600 mt-2"
+                className="alert alert-error border-2 border-red-500 bg-red-100 text-red-600"
                 key={`error-${error.message}`}
               >
                 Error: {error.message}

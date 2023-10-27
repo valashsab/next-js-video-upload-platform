@@ -4,7 +4,9 @@ type Props = {
 
 export default function UserDashboardPage({ params }: Props) {
   return (
-    <div className="bg-gradient-to-r from-blue-300 to-purple-800 ...">
+    // helles blau-violett
+    // <div className="bg-gradient-to-r from-indigo-400 to-indigo-200 ...">
+    <div className=" bg-gradient-to-r from-red-300 to-gray-700 min-h-screen">
       <h2>
         Welcome to your dashboard,{' '}
         {params.userName.charAt(0).toUpperCase() + params.userName.slice(1)}!
