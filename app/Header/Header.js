@@ -67,13 +67,16 @@ export default async function Header() {
                       {user.userName.charAt(0).toUpperCase() +
                         user.userName.slice(1)}
                     </li>
+                    <Link class="text-white" href="/dashboard">
+                      Dashboard
+                    </Link>
 
                     <LogoutButton />
                   </>
                 ) : (
                   <>
                     <li>
-                      <Link class="text-white " href="/signup">
+                      <Link class="text-white" href="/signup">
                         Sign up
                       </Link>
                     </li>
