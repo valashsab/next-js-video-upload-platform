@@ -20,7 +20,6 @@ export default async function SignUpPage() {
 
   return (
     <div className="bg-gradient-to-r from-red-300 to-gray-700 min-h-screen">
-      <h1>Sign up</h1>
       <SignupForm />
     </div>
   );
