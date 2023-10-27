@@ -4,7 +4,6 @@ import Link from 'next/link';
 import LogoutButton from '../api/(auth)/logout/LogoutButton';
 import { getUserBySessionToken } from '../database/users';
 
-// export default async function Header() {
 export default async function Header() {
   // Task: Display the logged in user's username in the navigation bar and hide the login and register links depending on whether the user is logged in or not
   // 3. Make decision whether to show the login and register links or not
