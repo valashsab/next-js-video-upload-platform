@@ -16,10 +16,7 @@ export default async function DashboardPage() {
   return (
     // <h1>Make new memories and save them in your digital video album </h1>
     <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 min-h-screen flex flex-col items-center justify-center ">
-      <h1 className="text-3xl font-bold text-white mb-4">
-        Make new memories and rewatch this precious moments and show them to
-        your loved ones
-      </h1>
+      <h1 className="text-3xl font-bold text-white mb-4">Slogan placeholder</h1>
       <div className="carousel relative max-w-md p-4 space-x-10 bg-neutral rounded-box mx-auto">
         <div
           id="item1"
