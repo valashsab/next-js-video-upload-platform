@@ -7,7 +7,7 @@ export type Video = {
   videoFormat: string;
   videoSize: number;
   title: string;
-  description: string;
+  descriptionContent: string;
   visible: boolean;
   ageRestriction: boolean;
   disableComments: boolean;
@@ -23,7 +23,7 @@ export async function up(sql: Sql) {
     -- check if provided byd cloudinary
     video_size integer,
     title varchar(50),
-    description_text text(150),
+    description_content text(150),
     user_id integer NOT NULL REFERENCES users (id) ON DELETE CASCADE,
     -- enabling to set videos on private or public
     visible boolean,
