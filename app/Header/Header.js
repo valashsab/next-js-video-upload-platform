@@ -37,9 +37,13 @@ export default async function Header() {
           <option disabled selected>
             Filter
           </option>
-          <option>Placeholder 1</option>
-          <option>Placeholder 2</option>
-          <option>Placeholder 3</option>
+          <option>Travel</option>
+          <option>Celebration</option>
+          <option>Sport</option>
+          <option>Nature</option>
+          <option>Education</option>
+          <option>DIY</option>
+          <option>Tutorial</option>
         </select>
         <div className="indicator">
           <button className="btn join-item">Search</button>
