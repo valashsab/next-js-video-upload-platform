@@ -18,12 +18,12 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
-    <div className="navbar bg-black">
+    <div className="navbar bg-custom-bg">
       {/* <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 ..."> */}
 
       <div className="navbar-start">
         <Link className="text-black" href="/">
-          <Image src="/images/logo2.png" width="150" height="100" />
+          <Image src="/images/frame.svg" width="350" height="300" />
         </Link>
       </div>
 

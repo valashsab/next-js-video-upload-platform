@@ -19,7 +19,7 @@ export default async function SignUpPage() {
   // 4. If the sessionToken cookie is invalid or doesn't exist, show the login form
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-custom-bg min-h-screen">
       {/* // <div className="bg-gradient-to-r from-red-300 to-gray-700 min-h-screen"> */}
       <SignupForm />
     </div>
