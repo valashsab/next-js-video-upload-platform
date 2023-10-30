@@ -15,7 +15,8 @@ export default async function DashboardPage() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
   return (
     // <h1>Make new memories and save them in your digital video album </h1>
-    <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 min-h-screen flex flex-col items-center justify-center ">
+    <div className="navbar bg-black min-h-screen flex flex-col items-center justify-center ">
+      {/* // <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 min-h-screen flex flex-col items-center justify-center "> */}
       <h1 className="text-3xl font-bold text-white mb-4">Slogan placeholder</h1>
       <div className="carousel relative max-w-md p-4 space-x-10 bg-neutral rounded-box mx-auto">
         <div
@@ -86,7 +87,7 @@ export default async function DashboardPage() {
               <Link href={`/dashboard/${user.userName}`}>
                 <div>
                   <div className="mt-5">
-                    <button className="flex w-full justify-center rounded-md bg-blue-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                       Dashboard
                     </button>
                   </div>

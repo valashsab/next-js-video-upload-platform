@@ -1,5 +1,6 @@
 import '../globals.css';
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import LogoutButton from '../api/(auth)/logout/LogoutButton';
 import { getUserBySessionToken } from '../database/users';
@@ -17,10 +18,12 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
-    <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 ...">
+    <div className="navbar bg-black">
+      {/* <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 ..."> */}
+
       <div className="navbar-start">
         <Link className="text-black" href="/">
-          Home
+          <Image src="/images/logo2.png" width="150" height="100" />
         </Link>
       </div>
 
