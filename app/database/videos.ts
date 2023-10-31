@@ -16,11 +16,11 @@
 
 // FRONTEND - on users dashboard
 // [x] 1. Implement UI components for video selection enable choosing videos on frontend via button (tailwind)
-// [] 2. Implement logic for handling video upload (handleUpload button, POST method to cloudinary)
+// [x] 2. Implement logic for handling video upload (handleUpload button, POST method to cloudinary)
 
 // API part 1: connecting frontent with cloudinary - POST method
-// [] 3a. Create an API route on your backend for handling video uploads to Cloudinary.
-// [] 3b. Make sure that videos and also other data such as title, description are saved to cloudinary as well
+// [x] 3a. Use cloudinary API for handling video uploads from browser to Cloudinary.
+// ([]) 3b. Make sure that videos and also other data such as title, description are saved to cloudinary as well
 
 // API part 2: connecting cloudinary data with backend - endpoint localhoast:5432
 // [x] 4a. create videos tables

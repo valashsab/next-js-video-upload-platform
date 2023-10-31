@@ -1,8 +1,6 @@
 'use client';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
-// // Require the Cloudinary library
-// const cloudinary = require('cloudinary').v2;
 
 // type Props = {
 //   params: { userName: string };
@@ -12,6 +10,7 @@ export default function UserDashboardPage() {
   // export default function UserDashboardPage({ params }: Props) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
@@ -25,7 +24,7 @@ export default function UserDashboardPage() {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
-      // You can make a POST request to your server's API using Fetch or Axios
+      // POST request to cloudinary's server API using Fetch or Axios
       fetch(
         'https://api.cloudinary.com/v1_1/dybl0vlsh/video/upload?upload_preset=m5zopfqr',
         {
@@ -40,6 +39,9 @@ export default function UserDashboardPage() {
             const url = data.secure_url;
 
             console.log('Video URL: ', url);
+            // Redirect to the videoDetailsPage with query parameters
+            router.push(`/videos/${data.user.userName}`);
+            router.refresh();
           }
         })
         .catch((error) => {
