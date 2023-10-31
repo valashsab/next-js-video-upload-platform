@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 // type Props = {
@@ -10,7 +10,7 @@ export default function UserDashboardPage() {
   // export default function UserDashboardPage({ params }: Props) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
@@ -39,9 +39,9 @@ export default function UserDashboardPage() {
             const url = data.secure_url;
 
             console.log('Video URL: ', url);
-            // Redirect to the videoDetailsPage with query parameters
-            router.push(`/videos/${data.user.userName}`);
-            router.refresh();
+            // send an HTTP request to the API endpoint
+            // router.push('/api/details');
+            // router.refresh();
           }
         })
         .catch((error) => {
