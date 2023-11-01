@@ -1,4 +1,5 @@
 'use client';
+// import { cookies } from 'next/headers';
 // import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -8,6 +9,9 @@ import { useState } from 'react';
 
 export default function UserDashboardPage() {
   // export default function UserDashboardPage({ params }: Props) {
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = process.env.CLOUDINARY_UPLOAD_PRESET;
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   // const router = useRouter();
@@ -23,10 +27,20 @@ export default function UserDashboardPage() {
     if (selectedFile) {
       const formData = new FormData();
       formData.append('file', selectedFile);
+      // // NEW: in order to associate video with user add:
+      // formData.append('user_id', currentUserID); // currentUserID is the ID of the logged-in user.
+
+      // // Include the session token in the authorization header
+      // const sessionTokenCookie = cookies().get('sessionToken');
+      // if (sessionTokenCookie) {
+      //   const sessionToken = sessionTokenCookie.value;
+      //   const headers = new Headers({
+      //     Authorization: `Bearer ${sessionToken}`,
+      //   });
 
       // POST request to cloudinary's server API using Fetch or Axios
       fetch(
-        'https://api.cloudinary.com/v1_1/dybl0vlsh/video/upload?upload_preset=m5zopfqr',
+        `https://api.cloudinary.com/v1_1/${cloudName}/video/upload?upload_preset=${uploadPreset}`,
         {
           method: 'POST',
           body: formData,
@@ -59,6 +73,8 @@ export default function UserDashboardPage() {
         <input
           type="file"
           // allow only videos to be uploaded
+          name="file" // added
+          id="file" // added
           accept="video/*"
           className="file-input file-input-bordered file-input-primary w-full max-w-xs text-black"
           onChange={handleFileChange}
