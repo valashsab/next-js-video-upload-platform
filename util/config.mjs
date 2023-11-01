@@ -13,10 +13,10 @@ export function setEnvironmentVariables() {
 
     // NEW CLOUDINARY TRIAL UPLOAD
     // Set Cloudinary environment variables
-    process.env.CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
-    process.env.API_KEY = process.env.CLOUDINARY_API_KEY;
-    process.env.API_SECRET = process.env.CLOUDINARY_API_SECRET;
-    process.env.UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
+    process.env.CLOUDINARY_CLOUD_NAME = process.env.CLOUD_NAME;
+    process.env.CLOUDINARY_API_KEY = process.env.API_KEY;
+    process.env.CLOUDINARY_API_SECRET = process.env.API_SECRET;
+    process.env.CLOUDINARY_UPLOAD_PRESET = process.env.UPLOAD_PRESET;
     return;
   }
 
