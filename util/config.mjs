@@ -11,12 +11,6 @@ export function setEnvironmentVariables() {
       process.env.PGPASSWORD = process.env.POSTGRES_PASSWORD;
     }
 
-    // NEW CLOUDINARY TRIAL UPLOAD
-    // Set Cloudinary environment variables
-    process.env.CLOUDINARY_CLOUD_NAME = process.env.CLOUD_NAME;
-    process.env.CLOUDINARY_API_KEY = process.env.API_KEY;
-    process.env.CLOUDINARY_API_SECRET = process.env.API_SECRET;
-    process.env.CLOUDINARY_UPLOAD_PRESET = process.env.UPLOAD_PRESET;
     return;
   }
 

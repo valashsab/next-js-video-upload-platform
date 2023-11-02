@@ -7,10 +7,15 @@ import { useState } from 'react';
 //   params: { userName: string };
 // };
 
+// type Props = {
+//   cloudName: string;
+//   uploadPreset: string;
+// };
+
 export default function UserDashboardPage() {
   // export default function UserDashboardPage({ params }: Props) {
-  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-  const uploadPreset = process.env.CLOUDINARY_UPLOAD_PRESET;
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -21,6 +26,12 @@ export default function UserDashboardPage() {
     setSelectedFile(file);
   };
 
+  console.log('CloudName: ', process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
+  console.log(
+    'UploadPreset: ',
+    process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+  );
+
   const handleUpload = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -29,14 +40,6 @@ export default function UserDashboardPage() {
       formData.append('file', selectedFile);
       // // NEW: in order to associate video with user add:
       // formData.append('user_id', currentUserID); // currentUserID is the ID of the logged-in user.
-
-      // // Include the session token in the authorization header
-      // const sessionTokenCookie = cookies().get('sessionToken');
-      // if (sessionTokenCookie) {
-      //   const sessionToken = sessionTokenCookie.value;
-      //   const headers = new Headers({
-      //     Authorization: `Bearer ${sessionToken}`,
-      //   });
 
       // POST request to cloudinary's server API using Fetch or Axios
       fetch(
