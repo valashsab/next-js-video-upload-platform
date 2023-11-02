@@ -3,17 +3,7 @@
 // import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-// type Props = {
-//   params: { userName: string };
-// };
-
-// type Props = {
-//   cloudName: string;
-//   uploadPreset: string;
-// };
-
 export default function UserDashboardPage() {
-  // export default function UserDashboardPage({ params }: Props) {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
@@ -25,12 +15,6 @@ export default function UserDashboardPage() {
     const file = e.target.files?.[0] || null;
     setSelectedFile(file);
   };
-
-  console.log('CloudName: ', process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME);
-  console.log(
-    'UploadPreset: ',
-    process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
-  );
 
   const handleUpload = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,9 +40,6 @@ export default function UserDashboardPage() {
             const url = data.secure_url;
 
             console.log('Video URL: ', url);
-            // send an HTTP request to the API endpoint
-            // router.push('/api/details');
-            // router.refresh();
           }
         })
         .catch((error) => {
@@ -75,9 +56,9 @@ export default function UserDashboardPage() {
       <form onSubmit={handleUpload}>
         <input
           type="file"
+          name="file"
+          id="file"
           // allow only videos to be uploaded
-          name="file" // added
-          id="file" // added
           accept="video/*"
           className="file-input file-input-bordered file-input-primary w-full max-w-xs text-black"
           onChange={handleFileChange}
