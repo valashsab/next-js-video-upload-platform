@@ -18,7 +18,7 @@ export default function UsersVideosPage({ params }: Props) {
               title="beach"
               width="560"
               height="315"
-              src="https://res.cloudinary.com/dybl0vlsh/video/upload/v1698756636/zieqjad5qzp0usg2ywpg.mp4"
+              src="https://res.cloudinary.com/dybl0vlsh/video/upload/v1698858264/zddk0kv6xihromaoy1x6.mp4"
               frameBorder={0}
               // frameBorder={0 as any}
               allowFullScreen

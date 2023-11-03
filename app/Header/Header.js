@@ -78,7 +78,8 @@ export default async function Header() {
                       {' '}
                       <Link
                         class="text-white"
-                        href={`/dashboard/${user.userName}`}
+                        href='/dashboard'
+                        // href={`/dashboard/${user.userName}`}
                       >
                         Dashboard
                       </Link>
@@ -86,7 +87,8 @@ export default async function Header() {
                     <li>
                       <Link
                         class="text-white"
-                        href={`/videos/${user.userName}`}
+                        href='/videos'
+                        // href={`/videos/${user.userName}`}
                       >
                         Videos
                       </Link>
