@@ -9,7 +9,7 @@ export default function UserDashboardPage() {
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
-  // const router = useRouter();
+  const [secureUrl, setSecureUrl] = useState<string | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
@@ -38,6 +38,7 @@ export default function UserDashboardPage() {
           if (data && data.secure_url) {
             // Video URL
             const url = data.secure_url;
+            setSecureUrl(url);
 
             console.log('Video URL: ', url);
           }
@@ -66,6 +67,16 @@ export default function UserDashboardPage() {
         <button className="text-black">Upload</button>
       </form>
       {uploadError !== null && <p className="text-red-500">{uploadError}</p>}
+      {secureUrl && (
+        <div>
+          <video width="320" height="240" controls>
+            <source src={secureUrl} type="video/mp4" />
+            <track kind="captions" src="" label="No captions" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
+      ;
     </div>
   );
 }
