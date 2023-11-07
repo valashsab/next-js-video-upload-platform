@@ -1,11 +1,13 @@
 'use client';
-// import { cookies } from 'next/headers';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function UserDashboardPage() {
+// import { cookies } from 'next/headers';
+
+export default function UploadForm() {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
+  const router = useRouter();
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -40,7 +42,9 @@ export default function UserDashboardPage() {
             const url = data.secure_url;
             setSecureUrl(url);
 
-            console.log('Video URL: ', url);
+            console.log('Secure URL: ', data.secure_url);
+            // Redirect to the "Video Details Page" with the video's unique identifier as a query parameter
+            router.push(`/video-details?videoId=${data.public_id}`);
           }
         })
         .catch((error) => {
@@ -50,6 +54,25 @@ export default function UserDashboardPage() {
     } else {
       setUploadError('Please select a file to upload.');
     }
+  };
+
+  // added 07.11.23 trial
+  const handleGetVideoData = () => {
+    // GET request to retrieve data
+    fetch('/api/dashboard/route.ts')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((responseData) => {
+        // Use the retrieved data as needed
+        console.log('Retrieved data:', responseData);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (

@@ -3,6 +3,8 @@ import { User } from '../../../migrations/00000-createTableUsers';
 import { getUserBySessionToken } from '../../database/users';
 import UploadForm from './UploadForm';
 
+// import VideoDetails from './VideoDetailsForm';
+
 // import { getUserBySessionToken } from '../database/users';
 
 // type Props = {
@@ -33,6 +35,10 @@ export default async function UserDashboardPage() {
         Ready to upload your memories? Let's get it started!{' '}
       </p>
       <UploadForm />
+      console.log('API URL:', apiUrl); console.log('Data:', data);
+      console.log('Latest Video:', latestVideo); console.log('Data:',
+      data.resources); console.log('Response: ', data.resources[0]);
+      {/* <VideoDetails /> */}
     </div>
   );
 }

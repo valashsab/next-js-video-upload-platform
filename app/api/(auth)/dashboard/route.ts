@@ -2,10 +2,8 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 // Define the structure of the response body
 export type UploadResponseBody = {
-  asset_id: string;
   secure_url: string;
   public_id: string;
-  // Add other properties as needed
 };
 
 // Create a custom type to extend NextApiRequest
@@ -34,7 +32,7 @@ export default async function handler(req: MyApiRequest, res: NextApiResponse) {
     }
 
     // API request with authorization headers
-    const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload??max_results=1&context=user_id=${userName}&sort_by=created_at&direction=desc`;
+    const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload?max_results=1&context=user_id=${userName}&sort_by=created_at&direction=desc`;
 
     // trial to fetch the latest video uploaded by logged in user
     const response = await fetch(apiUrl, {
@@ -53,12 +51,15 @@ export default async function handler(req: MyApiRequest, res: NextApiResponse) {
 
     const latestVideo = data.resources[0];
 
+    console.log('Response: ', data.resources[0]);
+
     const videoData: UploadResponseBody = {
-      asset_id: latestVideo.asset_id,
       secure_url: latestVideo.secure_url,
       public_id: latestVideo.public_id,
     };
 
+    console.log('SecureUrl: ', latestVideo.secure_url);
+    console.log('PublicId: ', latestVideo.public_id);
     // send data as response
     res.status(200).json(videoData);
   } catch (error) {

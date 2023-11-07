@@ -20,7 +20,7 @@
     "cloudinary-core": "^2.13.0",
     "dotenv": "^16.3.1",
     "ley": "^0.8.1",
-    "next": "13.5.6",
+    "next": "14.0.1",
     "node-fetch": "^3.3.2",
     "postgres": "^3.4.0",
     "react": "^18",
