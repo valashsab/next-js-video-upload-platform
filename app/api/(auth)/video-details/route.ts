@@ -21,6 +21,7 @@ export default async function handler(req: MyApiRequest, res: NextApiResponse) {
     const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
     const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
     const apiSecret = process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET;
+    const publicId =
 
     const userName = req.session.userName;
     console.log('UserName: ', userName);
@@ -31,8 +32,10 @@ export default async function handler(req: MyApiRequest, res: NextApiResponse) {
       return;
     }
 
-    // API request with authorization headers
-    const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload?max_results=1&context=user_id=${userName}&sort_by=created_at&direction=desc`;
+    // API request with authorization headers #1 seems to no be working
+    // const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload?max_results=1&context=user_id=${userName}&sort_by=created_at&direction=desc`;
+    // #2 trial
+    const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload/${publicId}`;
 
     // trial to fetch the latest video uploaded by logged in user
     const response = await fetch(apiUrl, {

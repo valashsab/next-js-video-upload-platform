@@ -42,9 +42,13 @@ export default function UploadForm() {
             const url = data.secure_url;
             setSecureUrl(url);
 
+            // const publicId = data.public_id;
+            // setPublicId(publicId);
+
             console.log('Secure URL: ', data.secure_url);
             // Redirect to the "Video Details Page" with the video's unique identifier as a query parameter
-            router.push(`/video-details?videoId=${data.public_id}`);
+            // router.push(`/video-details?publicId=${publicId}`);
+            router.push(`/video-details?publicId=${data.public_id}`);
           }
         })
         .catch((error) => {
@@ -56,24 +60,24 @@ export default function UploadForm() {
     }
   };
 
-  // added 07.11.23 trial
-  const handleGetVideoData = () => {
-    // GET request to retrieve data
-    fetch('/api/dashboard/route.ts')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then((responseData) => {
-        // Use the retrieved data as needed
-        console.log('Retrieved data:', responseData);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
+  // // added 07.11.23 trial
+  // const handleGetVideoData = () => {
+  //   // GET request to retrieve data
+  //   fetch('/api/dashboard/route.ts')
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok');
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((responseData) => {
+  //       // Use the retrieved data as needed
+  //       console.log('Retrieved data:', responseData);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error:', error);
+  //     });
+  // };
 
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
@@ -90,7 +94,7 @@ export default function UploadForm() {
         <button className="text-black">Upload</button>
       </form>
       {uploadError !== null && <p className="text-red-500">{uploadError}</p>}
-      {secureUrl && (
+      {secureUrl ? (
         <div>
           <video width="320" height="240" controls>
             <source src={secureUrl} type="video/mp4" />
@@ -98,7 +102,7 @@ export default function UploadForm() {
             Your browser does not support the video tag.
           </video>
         </div>
-      )}
+      ) : null}
       ;
     </div>
   );
