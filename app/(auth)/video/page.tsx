@@ -34,16 +34,17 @@ export default async function UsersVideosPage() {
               title="beach"
               width="560"
               height="315"
-              src="https://res.cloudinary.com/dybl0vlsh/video/upload/v1698858264/zddk0kv6xihromaoy1x6.mp4"
+              src="https://res.cloudinary.com/dybl0vlsh/video/upload/v1698858264/zieqjad5qzp0usg2ywpg
+
+              .mp4"
               frameBorder={0}
               // frameBorder={0 as any}
               allowFullScreen
               sandbox="allow-same-origin"
             />
           </li>
-          <li>PLACEHOLDER VIDEO 2</li>
-          <li>PLACEHOLDER VIDEO 3</li>
-          <li>PLACEHOLDER VIDEO 4</li>
+          <li>PLACEHOLDER title</li>
+          <li>PLACEHOLDER description</li>
         </ul>
       </h1>
     </div>
