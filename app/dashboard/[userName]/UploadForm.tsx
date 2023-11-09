@@ -55,17 +55,16 @@ export default function UploadForm() {
 
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
-      <form onSubmit={handleUpload}>
+      <form onSubmit={handleUpload} className="text-center">
         <input
           type="file"
           name="file"
           id="file"
-          // allow only videos to be uploaded
           accept="video/*"
           className="file-input file-input-bordered file-input-primary w-full max-w-xs text-black"
           onChange={handleFileChange}
         />
-        <button className="text-black">Upload</button>
+        <button className="text-black mt-2">Upload</button>
       </form>
       {uploadError !== null && <p className="text-red-500">{uploadError}</p>}
       {secureUrl ? (

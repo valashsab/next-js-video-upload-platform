@@ -69,7 +69,7 @@ export default async function Header() {
               <ul className="p-2 bg-base-100">
                 {user ? (
                   <>
-                    <li>
+                    <li className="text-white bg-primary rounded p-2">
                       {' '}
                       {user.userName.charAt(0).toUpperCase() +
                         user.userName.slice(1)}
@@ -77,8 +77,8 @@ export default async function Header() {
                     <li>
                       {' '}
                       <Link
-                        class="text-white"
-                        href='/dashboard'
+                        className="text-white"
+                        href="/dashboard"
                         // href={`/dashboard/${user.userName}`}
                       >
                         Dashboard
@@ -86,27 +86,27 @@ export default async function Header() {
                     </li>
                     <li>
                       <Link
-                        class="text-white"
-                        href='/videos'
+                        className="text-white"
+                        href="/videos"
                         // href={`/videos/${user.userName}`}
                       >
                         Videos
                       </Link>
                     </li>
-                    <li>
+                    <li className="text-white">
                       <LogoutButton />
                     </li>
                   </>
                 ) : (
                   <>
                     <li>
-                      <Link class="text-white" href="/signup">
+                      <Link className="text-white" href="/signup">
                         Sign up
                       </Link>
                     </li>
                     <li>
                       {' '}
-                      <Link class="text-white" href="/login">
+                      <Link className="text-white" href="/login">
                         Login
                       </Link>
                     </li>

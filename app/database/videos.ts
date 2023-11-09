@@ -1,14 +1,6 @@
 import { cache } from 'react';
+import { Video } from '../../migrations/00002-createTableVideos';
 import { sql } from '../database/connect';
-
-export type Video = {
-  id: number;
-  secureUrl: string;
-  publicId: string;
-  title: string;
-  descriptionContent: string;
-  userId: number;
-};
 
 export const createVideo = cache(
   async (
