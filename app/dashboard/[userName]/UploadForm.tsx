@@ -57,7 +57,7 @@ export default function UploadForm(props: Props) {
 
   const handleAddedVideoData = (event: React.FormEvent) => {
     event.preventDefault();
-    fetch('/api/videos', {
+    fetch('/api/upload', {
       method: 'POST',
       body: JSON.stringify({
         secureUrl,
