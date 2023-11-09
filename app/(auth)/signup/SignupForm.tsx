@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+// import { string } from 'zod';
 import { SignupResponseBodyPost } from '../../api/(auth)/signup/route';
 
 export default function SignupForm() {
@@ -9,7 +10,6 @@ export default function SignupForm() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [dateOfBirth, setDateOfBirth] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
   const router = useRouter();
 
@@ -22,7 +22,6 @@ export default function SignupForm() {
         userName,
         firstName,
         lastName,
-        dateOfBirth: new Date(dateOfBirth),
         email,
         password,
       }),
@@ -41,7 +40,6 @@ export default function SignupForm() {
     // revalidatePath('/(auth)/login', 'page');
     router.refresh();
   }
-  console.log('Date: ', dateOfBirth);
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -118,27 +116,6 @@ export default function SignupForm() {
                 name="lastName"
                 pattern="[A-Za-z]+"
                 onChange={(event) => setLastName(event.currentTarget.value)}
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="flex items-center justify-between">
-              <label
-                className="block text-sm font-medium leading-6 text-white"
-                htmlFor="dateOfBirth"
-              >
-                Date of birth{' '}
-              </label>
-            </div>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                type="date"
-                id="dateOfBirth"
-                name="dateOfBirth"
-                onChange={(event) => setDateOfBirth(event.currentTarget.value)}
                 required
               />
             </div>

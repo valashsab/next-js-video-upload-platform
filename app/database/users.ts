@@ -11,22 +11,26 @@ export const createUser = cache(
     userName: string,
     firstName: string,
     lastName: string,
-    dateOfBirth: Date,
     email: string,
     passwordHash: string,
   ) => {
     const [user] = await sql<User[]>`
-      INSERT INTO users
-        (user_name, first_name, last_name, date_of_birth, email, password_hash)
+      INSERT INTO
+        users (
+          user_name,
+          first_name,
+          last_name,
+          email,
+          password_hash
+        )
       VALUES
-        (${userName}, ${firstName}, ${lastName}, ${dateOfBirth}, ${email.toLowerCase()}, ${passwordHash})
-      RETURNING
-        id,
-        user_name
-        first_name,
-        last_name,
-        date_of_birth,
-        email
+        (
+          ${userName},
+          ${firstName},
+          ${lastName},
+          ${email.toLowerCase()},
+          ${passwordHash}
+        ) RETURNING *
     `;
     return user;
   },
@@ -48,30 +52,29 @@ export const getUserByUserName = cache(async (userName: string) => {
 export const getUserWithPasswordHashByUserName = cache(
   async (userName: string) => {
     const [user] = await sql<UserWithPasswordHash[]>`
-    SELECT
-      *
-    FROM
-      users
-    WHERE
-      user_name = ${userName.toLowerCase()}
-  `;
+      SELECT
+        *
+      FROM
+        users
+      WHERE
+        user_name = ${userName.toLowerCase()}
+    `;
     return user;
   },
 );
 
 export const getUserBySessionToken = cache(async (token: string) => {
   const [user] = await sql<User[]>`
-   SELECT
+    SELECT
       users.id,
       -- oder wie original users.username??
       users.user_name
     FROM
       users
-    INNER JOIN
-      sessions ON (
-        sessions.token = ${token} AND
-        sessions.user_id = users.id AND
-        sessions.expiry_timestamp > now()
+      INNER JOIN sessions ON (
+        sessions.token = ${token}
+        AND sessions.user_id = users.id
+        AND sessions.expiry_timestamp > now ()
       )
   `;
   return user;

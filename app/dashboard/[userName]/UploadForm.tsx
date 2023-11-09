@@ -1,11 +1,11 @@
 'use client';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function UploadForm() {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-  const router = useRouter();
+  // const router = useRouter();
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -40,8 +40,8 @@ export default function UploadForm() {
 
             console.log('Secure URL: ', data.secure_url);
 
-            router.push(`/video-details?publicId=${data.public_id}`);
-            router.refresh();
+            // router.push(`/video-details?publicId=${data.public_id}`);
+            // router.refresh();
           }
         })
         .catch((error) => {

@@ -7,9 +7,6 @@ export type Video = {
   title: string;
   descriptionContent: string;
   userId: number;
-  // visible: boolean;
-  // ageRestriction: boolean;
-  // disableComments: boolean;
 };
 
 export async function up(sql: Sql) {
@@ -19,16 +16,11 @@ export async function up(sql: Sql) {
         id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
         secure_url VARCHAR(150) NOT NULL UNIQUE,
         -- provided by cloudinary
-        public_id VARCHAR(50) NOT NULL,
+        public_id VARCHAR(50),
         -- provided by cloudinary
         title VARCHAR(50),
-        description_content text (150),
-        user_id INTEGER NOT NULL REFERENCES users (id) ON DELETE CASCADE,
-        -- enabling to set videos on private or public
-        -- visible BOOLEAN,
-        -- -- enables watching certain videos at a certain age
-        -- age_restriction BOOLEAN,
-        -- disable_comments BOOLEAN,
+        description_content VARCHAR(200),
+        user_id INTEGER NOT NULL REFERENCES users (id) ON DELETE CASCADE
       );
   `;
 }

@@ -12,7 +12,6 @@ const signupSchema = z.object({
   userName: z.string().min(3),
   firstName: z.string().min(3),
   lastName: z.string().min(3),
-  dateOfBirth: z.coerce.date(),
   email: z.string().min(3),
   password: z.string().min(3),
 });
@@ -65,7 +64,6 @@ export async function POST(
     result.data.userName,
     result.data.firstName,
     result.data.lastName,
-    result.data.dateOfBirth,
     result.data.email,
     passwordHash,
   );

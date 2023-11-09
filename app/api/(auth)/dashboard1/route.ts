@@ -37,8 +37,7 @@ export default async function handler(req: MyApiRequest, res: NextApiResponse) {
     // const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload/${publicId}`;
     // const apiUrl = `https://api.cloudinary.com/v1_1/${cloudName}/resources/video/upload/xmq4cvhbiebtqqms1izv`;
     // trial 3 with the baseUrl
-    const apiUrl = `https://res.cloudinary.com/${cloudName}/video/upload/zieqjad5qzp0usg2ywpg
-
+    const apiUrl = `https://res.cloudinary.com/${cloudName}/video/upload/v1699475210/z0ponegaoldd0cxlcnvc.mp4
     `;
     // trial to fetch the latest video uploaded by logged in user
     const response = await fetch(apiUrl, {
