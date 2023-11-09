@@ -20,29 +20,6 @@ export default async function UsersVideosPage() {
           : ''}
         !
       </h1>
-
-      {/* map over videos */}
-      {/* <span>
-        {videos.map((video) => {
-          return (
-            <div key={`product-div-${video.id}`}>
-              <Link
-                data-test-id={`product-${video.id}`}
-                href={`/products/${video.id}`}
-              >
-                <div>{video.type}</div>
-                <Image
-                  data-test-id="product-image"
-                  src={`/images/${video.type}.png`}
-                  alt={video.type}
-                  width={200}
-                  height={200}
-                />
-              </Link>
-            </div>
-          );
-        })}
-      </span> */}
     </div>
   );
 }

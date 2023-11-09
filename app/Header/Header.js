@@ -91,8 +91,7 @@ export default async function Header() {
                     <li>
                       <Link
                         className="text-white"
-                        href="/videos"
-                        // href={`/videos/${user.userName}`}
+                        href={`/videos/${user.userName}`}
                       >
                         Videos
                       </Link>
