@@ -23,7 +23,12 @@ export default async function Header() {
 
       <div className="navbar-start">
         <Link className="text-black" href="/">
-          <Image src="/images/frame.svg" width="350" height="300" />
+          <Image
+            src="/images/frame.svg"
+            width="350"
+            height="300"
+            alt="memento logo"
+          />
         </Link>
       </div>
 
@@ -78,8 +83,7 @@ export default async function Header() {
                       {' '}
                       <Link
                         className="text-white"
-                        href="/dashboard"
-                        // href={`/dashboard/${user.userName}`}
+                        href={`/dashboard/${user.userName}`}
                       >
                         Dashboard
                       </Link>

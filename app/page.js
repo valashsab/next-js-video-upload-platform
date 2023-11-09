@@ -87,7 +87,7 @@ export default async function DashboardPage() {
             </p>
             <div>
               {/* <Link href={`/dashboard/${user.userName}`}> */}
-              <Link href="/dashboard">
+              <Link href={`/dashboard/${user.userName}`}>
                 <div>
                   <div className="mt-5">
                     <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

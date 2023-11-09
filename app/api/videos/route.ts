@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createVideo, Video } from '../../database/videos';
+import { Video } from '../../../migrations/00002-createTableVideos';
+import { createVideo } from '../../database/videos';
 
 const videoSchema = z.object({
   secureUrl: z.string(),
