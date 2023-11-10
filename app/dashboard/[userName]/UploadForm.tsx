@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-type Props = { user: { id: number; userName: string } };
+type Props = { user: { id: number; userName: string } | undefined };
 
 export default function UploadForm(props: Props) {
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
@@ -84,7 +84,7 @@ export default function UploadForm(props: Props) {
       });
 
     // router.push(`/videos/${props.user?.id}`);
-    router.push(`/videos/${props.user.userName}`);
+    router.push(`/videos/${props.user?.userName}`);
     router.refresh();
   };
 

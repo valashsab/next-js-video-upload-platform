@@ -31,3 +31,21 @@ export const createVideo = cache(
     return video;
   },
 );
+
+export const getVideosByUserId = cache(async (userId: number) => {
+  const videos = await sql<Video[]>`
+    SELECT
+      videos.secure_url,
+      videos.public_id,
+      videos.title,
+      videos.description
+    FROM
+      videos
+      INNER JOIN users ON (
+        videos.user_id = users.user_id
+        WHERE
+          users.user_id = ${userId}
+      )
+  `;
+  return videos;
+});
