@@ -122,12 +122,12 @@ export default function UploadForm(props: Props) {
             required
           />
           <br />
-          <label className="text-white" htmlFor="description">
+          <label className="text-white" htmlFor="descriptionContent">
             Description
           </label>
           <input
-            id="description"
-            name="description"
+            id="descriptionContent"
+            name="descriptionContent"
             onChange={(event) =>
               setDescriptionContent(event.currentTarget.value)
             }

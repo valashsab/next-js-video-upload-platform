@@ -38,14 +38,12 @@ export const getVideosByUserId = cache(async (userId: number) => {
       videos.secure_url,
       videos.public_id,
       videos.title,
-      videos.description
+      videos.description_content
     FROM
       videos
-      INNER JOIN users ON (
-        videos.user_id = users.id
-        WHERE
-          users.id = ${userId}
-      )
+      INNER JOIN users ON videos.user_id = users.id
+    WHERE
+      users.id = ${userId}
   `;
   return videos;
 });

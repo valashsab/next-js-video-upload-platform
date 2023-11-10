@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { Video } from '../../../migrations/00002-createTableVideos';
-import { createVideo } from '../../database/videos';
+import { getVideosByUserId } from '../../database/videos';
 
 const videoSchema = z.object({
   secureUrl: z.string(),
@@ -19,7 +19,7 @@ export type UserVideosResponseBodyPost =
       errors: { message: string }[];
     };
 
-export async function POST(
+export async function GET(
   request: NextRequest,
 ): Promise<NextResponse<UserVideosResponseBodyPost>> {
   const body = await request.json();
@@ -35,22 +35,16 @@ export async function POST(
     );
   }
 
-  const newVideo = await createVideo(
-    result.data.secureUrl,
-    result.data.publicId,
-    result.data.title,
-    result.data.descriptionContent,
-    result.data.userId,
-  );
+  const videosList = await getVideosByUserId(result.data.userId);
 
-  if (!newVideo) {
+  if (videosList.length === 0) {
     return NextResponse.json(
-      { errors: [{ message: 'Error creating the new video' }] },
+      { errors: [{ message: 'Error no videos to display' }] },
       { status: 406 },
     );
   }
 
   return NextResponse.json({
-    videos: [newVideo],
+    videos: videosList,
   });
 }
