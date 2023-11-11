@@ -17,7 +17,7 @@ export default async function VideosPage() {
 
   return (
     <div>
-      <h1 className="text-center text-2xl font-bold leading-9 tracking-tight text-white">
+      <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-white">
         Welcome to your video collection,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)

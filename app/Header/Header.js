@@ -28,6 +28,7 @@ export default async function Header() {
             width="350"
             height="300"
             alt="memento logo"
+            priority
           />
         </Link>
       </div>
@@ -41,7 +42,10 @@ export default async function Header() {
             placeholder="Search"
           />
         </div>
-        <select className="select select-bordered join-item">
+        <select
+          className="select select-bordered join-item"
+          defaultValue="Filter"
+        >
           <option disabled selected>
             Filter
           </option>
