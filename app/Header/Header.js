@@ -44,18 +44,15 @@ export default async function Header() {
         </div>
         <select
           className="select select-bordered join-item"
-          defaultValue="Filter"
+          defaultValue="option1"
         >
-          <option disabled selected>
-            Filter
-          </option>
-          <option>Travel</option>
-          <option>Celebration</option>
-          <option>Sport</option>
-          <option>Nature</option>
-          <option>Education</option>
-          <option>DIY</option>
-          <option>Tutorial</option>
+          <option value="option1">Travel</option>
+          <option value="option2">Celebration</option>
+          <option value="option3">Sport</option>
+          <option value="option4">Nature</option>
+          <option value="option5">Education</option>
+          <option value="option6">DIY</option>
+          <option value="option7">Tutorial</option>
         </select>
         <div className="indicator">
           <button className="btn join-item">Search</button>
