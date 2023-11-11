@@ -3,14 +3,9 @@ import { User } from '../../../migrations/00000-createTableUsers';
 import { Video } from '../../../migrations/00002-createTableVideos';
 import { getUserBySessionToken } from '../../database/users';
 import { getVideosByUserId } from '../../database/videos';
-import VideosList from './VideosList';
+import VideosList, { VideosProps } from './VideosList';
 
-type VideosPageProps = User & {
-  userId: number;
-  videos: Video[];
-};
-
-export default async function VideosPage(props: VideosPageProps) {
+export default async function VideosPage(props: VideosProps) {
   // 1. Checking if the sessionToken cookie exists
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');

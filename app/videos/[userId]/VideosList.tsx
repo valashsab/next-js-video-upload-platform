@@ -1,14 +1,15 @@
 'use client';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Video } from '../../../migrations/00002-createTableVideos';
 import { UserVideosResponseBodyGet } from '../../api/videos/route';
 
-type VideosListProps = {
+export type VideosProps = {
   userId: number;
   videos: Video[];
 };
 
-export default function VideosList(props: VideosListProps) {
+export default function VideosList(props: VideosProps) {
   const [videos, setVideos] = useState<Video[]>([]);
 
   useEffect(() => {
@@ -39,6 +40,15 @@ export default function VideosList(props: VideosListProps) {
     <div>
       {props.videos.map((video) => (
         <div key={`video-${video.id}`}>
+          {/* quick fix - ask for a sustainable solution */}
+          <Link
+            href="/videos/[userId]/[videoId]"
+            as={`/videos/${props.userId}/${video.id}`}
+          >
+            {' '}
+            {video.secureUrl}
+          </Link>
+          <br />
           <video controls width="300" height="200">
             <source src={video.secureUrl} type="video/mp4" />{' '}
             <track kind="captions" srcLang="en" label="English" />
@@ -46,6 +56,8 @@ export default function VideosList(props: VideosListProps) {
           </video>
           <p>Title: {video.title}</p>
           <p>Description: {video.descriptionContent}</p>
+          <br />
+          <br />
         </div>
       ))}
     </div>
