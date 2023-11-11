@@ -11,7 +11,7 @@ const videoSchema = z.object({
   userId: z.number(),
 });
 
-export type UserVideosResponseBodyPost =
+export type UserVideosResponseBodyGet =
   | {
       videos: Video[];
     }
@@ -21,7 +21,7 @@ export type UserVideosResponseBodyPost =
 
 export async function GET(
   request: NextRequest,
-): Promise<NextResponse<UserVideosResponseBodyPost>> {
+): Promise<NextResponse<UserVideosResponseBodyGet>> {
   const body = await request.json();
 
   const result = videoSchema.safeParse(body);

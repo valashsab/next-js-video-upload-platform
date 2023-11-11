@@ -5,7 +5,12 @@ import { getUserBySessionToken } from '../../database/users';
 import { getVideosByUserId } from '../../database/videos';
 import VideosList from './VideosList';
 
-export default async function VideosPage() {
+type VideosPageProps = User & {
+  userId: number;
+  videos: Video[];
+};
+
+export default async function VideosPage(props: VideosPageProps) {
   // 1. Checking if the sessionToken cookie exists
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
@@ -14,6 +19,8 @@ export default async function VideosPage() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   const videos: Video[] = await getVideosByUserId(user?.id as number);
+
+  console.log(props);
 
   return (
     <div>
