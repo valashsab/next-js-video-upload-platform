@@ -5,39 +5,73 @@ import { Video } from '../../../migrations/00002-createTableVideos';
 import { UserVideosResponseBodyGet } from '../../api/videos/route';
 
 export type VideosProps = {
+  // added since in console undefined - trial 12/11/23
+  id: number;
   userId: number;
   videos: Video[];
 };
 
 export default function VideosList(props: VideosProps) {
-  const [videos, setVideos] = useState<Video[]>([]);
+  // const [videos, setVideos] = useState<Video[]>([]);
+
+  // useEffect(() => {
+  //   const fetchVideos = async () => {
+  //     try {
+  //       const response = await fetch(`/api/videos?userId=${props.userId}`);
+
+  //       if (response.ok) {
+  //         const data: UserVideosResponseBodyGet = await response.json();
+
+  //         setVideos((data as { videos: Video[] }).videos);
+  //       } else {
+  //         console.error(`Failed to fetch videos: ${response.statusText}`);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching videos:', error);
+  //     }
+  //   };
+
+  //   fetchVideos().catch((error) =>
+  //     console.error('Error fetching videos:', error),
+  //   );
+  // }, [props.userId, props.videos]);
+
+  // // added since in console undefined - trial 12/11/23
+
+  // // DEFINED
+  // console.log('UserId: ', props.userId);
+  // // DEFINED
+  // console.log('Videos:', props.videos);
+  // // undefined
+  // console.log('Id', props.id);
+  // console.log('videos: ', videos);
+
+  // const [data, setData] = useState<Video[]>([]);
+  const [data, setData] = useState<UserVideosResponseBodyGet>({ videos: [] });
 
   useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const response = await fetch(`/api/videos?userId=${props.userId}`);
-
-        if (response.ok) {
-          const data: UserVideosResponseBodyGet = await response.json();
-
-          setVideos((data as { videos: Video[] }).videos);
-        } else {
-          console.error(`Failed to fetch videos: ${response.statusText}`);
-        }
-      } catch (error) {
-        console.error('Error fetching videos:', error);
+    const fetchData = async () => {
+      const response = await fetch(`/api/videos?userId=${props.userId}`);
+      console.log('Response: ', response);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      const result: UserVideosResponseBodyGet = await response.json();
+      setData(result);
     };
 
-    fetchVideos().catch((error) =>
-      console.error('Error fetching videos:', error),
-    );
+    fetchData().catch((e) => {
+      // handle the error as needed
+      console.error('An error occurred while fetching the data: ', e);
+    });
   }, [props.userId, props.videos]);
-
-  console.log('Videos: ', videos);
+  console.log('VideoId: ', props.id);
+  console.log('UserId: ', props.userId);
+  console.log('Videos: ', props.videos);
 
   return (
     <div>
+      <p>{data ? `Your data: ${data}` : 'Loading...'}</p>
       {props.videos.map((video) => (
         <div key={`video-${video.id}`}>
           {/* quick fix - ask for a sustainable solution */}

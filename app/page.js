@@ -86,7 +86,6 @@ export default async function DashboardPage() {
               {user.userName.charAt(0).toUpperCase() + user.userName.slice(1)}
             </p>
             <div>
-              {/* <Link href={`/dashboard/${user.userName}`}> */}
               <Link href={`/dashboard/${user.userName}`}>
                 <div>
                   <div className="mt-5">

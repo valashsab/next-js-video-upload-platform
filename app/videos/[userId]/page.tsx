@@ -26,7 +26,9 @@ export default async function VideosPage(props: VideosProps) {
           : ''}
         !
       </h1>
-      <VideosList userId={user?.id as number} videos={videos} />
+      {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
+      {/* 12.11.23 */}
+      <VideosList id={props.id} userId={user?.id as number} videos={videos} />
     </div>
   );
 }

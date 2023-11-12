@@ -1,42 +1,51 @@
-import { cookies } from 'next/headers';
-import { User } from '../../../../migrations/00000-createTableUsers';
-import { Video } from '../../../../migrations/00002-createTableVideos';
-import { getUserBySessionToken } from '../../../database/users';
-import { getSingleVideoByUserId } from '../../../database/videos';
-import SingleVideosList, { SingleVideosProps } from './SingleVideosList';
+// import { cookies } from 'next/headers';
+// import { User } from '../../../../migrations/00000-createTableUsers';
+// import { Video } from '../../../../migrations/00002-createTableVideos';
+// import { getUserBySessionToken } from '../../../database/users';
+// import { getSingleVideoByUserId } from '../../../database/videos';
+// import SingleVideosList, { SingleVideosProps } from './SingleVideosList';
 
-export default async function SingleVideosPage(props: SingleVideosProps) {
-  // 1. Checking if the sessionToken cookie exists
-  const cookieStore = cookies();
-  const sessionToken = cookieStore.get('sessionToken');
-  //   // 2. Get the current logged-in user from the database using the sessionToken value
-  const user: User | undefined =
-    sessionToken && (await getUserBySessionToken(sessionToken.value));
+// // new type Params = {
+//   params: {
+//     userId: number
+//   }
+// }
+// in function ({params: {userId}}: Params)
 
-  const { id } = props;
+// export default async function SingleVideosPage(props: SingleVideosProps) {
+//   // 1. Checking if the sessionToken cookie exists
+//   const cookieStore = cookies();
+//   const sessionToken = cookieStore.get('sessionToken');
+//   //   // 2. Get the current logged-in user from the database using the sessionToken value
+//   const user: User | undefined =
+//     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
-  const singleVideos: Video[] = await getSingleVideoByUserId(
-    id,
-    user?.id as number,
-  );
+//   const { id } = props;
+//   // added since in console undefined - trial 12/11/23
+//   // const id = props.id;
 
-  console.log('Props: ', props);
-  console.log('Id: ', id);
+//   const singleVideos: Video[] = await getSingleVideoByUserId(
+//     id,
+//     user?.id as number,
+//   );
 
-  return (
-    <div>
-      <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-white">
-        Relive your memories,{' '}
-        {user?.userName
-          ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
-          : ''}
-        !
-      </h1>
-      <SingleVideosList
-        id={id}
-        userId={user?.id as number}
-        singleVideos={singleVideos}
-      />
-    </div>
-  );
-}
+//   console.log('Props: ', props);
+//   console.log('Id: ', id);
+
+//   return (
+//     <div>
+//       <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-white">
+//         Relive your memories,{' '}
+//         {user?.userName
+//           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
+//           : ''}
+//         !
+//       </h1>
+//       <SingleVideosList
+//         id={id}
+//         userId={user?.id as number}
+//         singleVideos={singleVideos}
+//       />
+//     </div>
+//   );
+// }
