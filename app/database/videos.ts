@@ -44,8 +44,10 @@ export const getVideosByUserId = cache(async (userId: number) => {
   return videos;
 });
 
+// obsolet??
 // export const getSingleVideoByUserId = cache(
-//   async (id: number, userId: number) => {
+//   // async (id: number, userId: number) => {
+//   async (userId: number) => {
 //     const singleVideos = await sql<Video[]>`
 //       SELECT
 //         *
@@ -53,8 +55,22 @@ export const getVideosByUserId = cache(async (userId: number) => {
 //         videos
 //       WHERE
 //         user_id = ${userId}
-//         AND id = ${id}
 //     `;
 //     return singleVideos;
 //   },
 // );
+
+export const getSingleVideoByUserIdVideoId = cache(
+  async (id: number, userId: number) => {
+    const singleVideos = await sql<Video[]>`
+      SELECT
+        *
+      FROM
+        videos
+      WHERE
+        id = ${id}
+        AND user_id = ${userId}
+    `;
+    return singleVideos;
+  },
+);
