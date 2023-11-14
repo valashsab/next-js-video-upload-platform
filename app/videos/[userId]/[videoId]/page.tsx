@@ -49,12 +49,14 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
         !
       </h1>
 
-      {singleVideos.title}
       <video controls width="300" height="200">
         <source src={singleVideos.secureUrl} type="video/mp4" />{' '}
         <track kind="captions" srcLang="en" label="English" />
         Your browser does not support the video tag.
       </video>
+      {singleVideos.title}
+      <br />
+      {singleVideos.descriptionContent}
     </div>
   );
 }

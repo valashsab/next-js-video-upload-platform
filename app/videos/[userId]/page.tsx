@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { User } from '../../../migrations/00000-createTableUsers';
 import { Video } from '../../../migrations/00002-createTableVideos';
@@ -33,22 +34,24 @@ export default async function VideosPage(props: VideosProps) {
       {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
       {videos.map((video) => (
         <div key={`video-${video.id}`}>
-          {/* quick fix - ask for a sustainable solution */}
           <Link
+            href="/videos/[userId]/[videoId]"
+            as={`/videos/${video.userId}/${video.id}`}
+          >
+            <Image
+              src={video.secureUrl.replace(/\.\w+$/, '.jpg')}
+              alt="Thumbnail for video"
+              width="350"
+              height="300"
+            />{' '}
+          </Link>
+          {/* <Link
             href="/videos/[userId]/[videoId]"
             as={`/videos/${video.userId}/${video.id}`}
           >
             {' '}
             {video.title}
-          </Link>
-          <br />
-          <video controls width="300" height="200">
-            <source src={video.secureUrl} type="video/mp4" />{' '}
-            <track kind="captions" srcLang="en" label="English" />
-            Your browser does not support the video tag.
-          </video>
-          {/* <p>Title: {video.title}</p>
-          <p>Description: {video.descriptionContent}</p> */}
+          </Link> */}
           <br />
           <br />
         </div>
