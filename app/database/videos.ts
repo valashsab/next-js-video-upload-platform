@@ -62,7 +62,7 @@ export const getVideosByUserId = cache(async (userId: number) => {
 
 export const getSingleVideoByUserIdVideoId = cache(
   async (id: number, userId: number) => {
-    const singleVideos = await sql<Video[]>`
+    const [singleVideo] = await sql<Video[]>`
       SELECT
         *
       FROM
@@ -71,6 +71,6 @@ export const getSingleVideoByUserIdVideoId = cache(
         id = ${id}
         AND user_id = ${userId}
     `;
-    return singleVideos;
+    return singleVideo;
   },
 );

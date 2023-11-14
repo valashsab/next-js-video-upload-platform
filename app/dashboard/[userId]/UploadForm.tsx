@@ -83,8 +83,8 @@ export default function UploadForm(props: Props) {
         console.error('Error:', error);
       });
 
-    // router.push(`/videos/${props.user?.id}`);
-    router.push(`/videos/${props.user?.userName}`);
+    // router.push(`/videos/${props.user?.userName}`);
+    router.push(`/videos/${props.user?.id}`);
     router.refresh();
   };
 

@@ -1,13 +1,16 @@
 import { cookies } from 'next/headers';
+import { notFound } from 'next/navigation';
 import { User } from '../../../../migrations/00000-createTableUsers';
 import { Video } from '../../../../migrations/00002-createTableVideos';
 import { getUserBySessionToken } from '../../../database/users';
 import { getSingleVideoByUserIdVideoId } from '../../../database/videos';
 
 export type SingleVideosProps = {
-  id: number;
-  userId: number;
-  singleVideos: Video[];
+  params: {
+    videoId: number;
+    userId: number;
+  };
+  singleVideos: Video[] | undefined;
 };
 
 export default async function SingleVideosPage(props: SingleVideosProps) {
@@ -18,17 +21,23 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
   const user: User | undefined =
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
-  const { id } = props;
-  // added since in console undefined - trial 12/11/23
-  // const id = props.id;
-
-  const singleVideos: Video[] = await getSingleVideoByUserIdVideoId(
-    id,
-    user?.id as number,
+  const singleVideos = await getSingleVideoByUserIdVideoId(
+    props.params.videoId,
+    props.params.userId,
   );
+  if (!singleVideos) {
+    return notFound();
+  }
 
+  // undefined
+  console.log('SingleVideos: ', singleVideos);
   console.log('Props: ', props);
-  console.log('Id: ', id);
+
+  // DEFINED
+  console.log('VideoId: ', props.params.videoId);
+
+  // DEFINED
+  console.log('UserId ', props.params.userId);
 
   return (
     <div>
@@ -39,22 +48,13 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
           : ''}
         !
       </h1>
-      {/* <SingleVideosList
-        id={id}
-        userId={user?.id as number}
-        singleVideos={singleVideos}
-      /> */}
-      {singleVideos.map((singleVideo) => (
-        <div key={`video-${singleVideo.id}`}>
-          <video controls width="300" height="200">
-            <source src={singleVideo.secureUrl} type="video/mp4" />{' '}
-            <track kind="captions" srcLang="en" label="English" />
-            Your browser does not support the video tag.
-          </video>
-          <p>Title: {singleVideo.title}</p>
-          <p>Description: {singleVideo.descriptionContent}</p>
-        </div>
-      ))}
+
+      {singleVideos.title}
+      <video controls width="300" height="200">
+        <source src={singleVideos.secureUrl} type="video/mp4" />{' '}
+        <track kind="captions" srcLang="en" label="English" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   );
 }

@@ -6,9 +6,6 @@ import { getUserBySessionToken } from '../../database/users';
 import { getVideosByUserId } from '../../database/videos';
 
 export type VideosProps = {
-  // added since in console undefined - trial 12/11/23
-  id: number;
-  userName: string;
   videos: Video[];
 };
 
@@ -34,17 +31,15 @@ export default async function VideosPage(props: VideosProps) {
         !
       </h1>
       {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
-      {/* 12.11.23 */}
-      {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
       {videos.map((video) => (
         <div key={`video-${video.id}`}>
           {/* quick fix - ask for a sustainable solution */}
           <Link
             href="/videos/[userId]/[videoId]"
-            as={`/videos/${props.userName}/${video.id}`}
+            as={`/videos/${video.userId}/${video.id}`}
           >
             {' '}
-            {video.secureUrl}
+            {video.title}
           </Link>
           <br />
           <video controls width="300" height="200">
@@ -52,8 +47,8 @@ export default async function VideosPage(props: VideosProps) {
             <track kind="captions" srcLang="en" label="English" />
             Your browser does not support the video tag.
           </video>
-          <p>Title: {video.title}</p>
-          <p>Description: {video.descriptionContent}</p>
+          {/* <p>Title: {video.title}</p>
+          <p>Description: {video.descriptionContent}</p> */}
           <br />
           <br />
         </div>
