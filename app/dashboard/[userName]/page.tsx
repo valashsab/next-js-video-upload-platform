@@ -1,24 +1,34 @@
 import { cookies } from 'next/headers';
-import { User } from '../../../migrations/00000-createTableUsers';
+import { redirect } from 'next/navigation';
 import { getUserBySessionToken } from '../../database/users';
 import UploadForm from './UploadForm';
 
-export default async function UserDashboardPage() {
+type Props = {
+  params: {
+    userName: string;
+  };
+};
+
+export default async function UserDashboardPage({ params }: Props) {
   // 1. Checking if the sessionToken cookie exists
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
 
   // 2. Get the current logged in user from the database using the sessionToken value
-  const user: User | undefined =
+  const user =
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
+  // added 14.11.23
+  if (!sessionToken) {
+    return redirect(`/login?returnTo=/login/${params.userName}`);
+  }
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
       <div className="text-center mb-4">
         <h1 className="font-bold text-black">
           Welcome to your dashboard,{' '}
-          {user?.userName
-            ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
+          {params.userName
+            ? params.userName.charAt(0).toUpperCase() + params.userName.slice(1)
             : ''}
           !
         </h1>
