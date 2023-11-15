@@ -3,15 +3,13 @@
 @tailwind utilities;
 
 /* @font-face {
-  font-family: 'Inconsolata';
-  font-style: normal;
-  font-weight: 200;
+  font-family: 'Homemade Apple';
+  font-style: cursive;
+  font-weight: 400;
   src: url('/path-to-your-font/Inconsolata-200.woff2') format('woff2');
-}
+} */
 
-
-
-.error {
+/* .error {
   color: red;
   background: grey;
 } */

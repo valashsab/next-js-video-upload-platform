@@ -8,9 +8,9 @@ const nextConfig = {
     domains: ['res.cloudinary.com'],
   },
   // Add the domain for videos
-  video: {
-    domains: ['res.cloudinary.com'],
-  },
+  // video: {
+  //   domains: ['res.cloudinary.com'],
+  // },
 };
 
 module.exports = nextConfig;

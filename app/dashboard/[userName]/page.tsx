@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getUserBySessionToken } from '../../database/users';
+import DiffComp from './DiffComp';
 import UploadForm from './UploadForm';
 
 type Props = {
@@ -24,6 +25,7 @@ export default async function UserDashboardPage({ params }: Props) {
   }
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
+      <DiffComp />
       <div className="text-center mb-4">
         <h1 className="font-bold text-black">
           Welcome to your dashboard,{' '}
@@ -35,6 +37,7 @@ export default async function UserDashboardPage({ params }: Props) {
         <p className="text-black">
           Ready to upload your memories? Let's get it started!{' '}
         </p>
+        D
       </div>
       <UploadForm user={user} />
     </div>

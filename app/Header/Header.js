@@ -20,7 +20,6 @@ export default async function Header() {
   return (
     <div className="navbar bg-custom-bg">
       {/* <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 ..."> */}
-
       <div className="navbar-start">
         <Link className="text-black" href="/">
           <Image
@@ -32,8 +31,7 @@ export default async function Header() {
           />
         </Link>
       </div>
-
-      <div className="navbar-center  join">
+      {/* <div className="navbar-center  join">
         <div>
           <input
             className="input input-bordered join-item"
@@ -57,7 +55,7 @@ export default async function Header() {
         <div className="indicator">
           <button className="btn join-item">Search</button>
         </div>
-      </div>
+      </div> */}
 
       <div className="navbar-end">
         <ul className="menu menu-horizontal px-1">

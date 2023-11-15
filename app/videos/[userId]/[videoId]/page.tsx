@@ -4,6 +4,7 @@ import { User } from '../../../../migrations/00000-createTableUsers';
 import { Video } from '../../../../migrations/00002-createTableVideos';
 import { getUserBySessionToken } from '../../../database/users';
 import { getSingleVideoByUserIdVideoId } from '../../../database/videos';
+import DeleteSingleVideo from './DeleteSingleVideo';
 
 export type SingleVideosProps = {
   params: {
@@ -29,13 +30,14 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
     return notFound();
   }
 
-  // undefined
-  console.log('SingleVideos: ', singleVideos);
-  console.log('Props: ', props);
+  // const deletedVideo = await deleteSingleVideoByUserIdVideoId(
+  //   props.params.videoId,
+  //   props.params.userId,
+  // );
 
+  console.log('Props: ', props);
   // DEFINED
   console.log('VideoId: ', props.params.videoId);
-
   // DEFINED
   console.log('UserId ', props.params.userId);
 
@@ -57,6 +59,15 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
       {singleVideos.title}
       <br />
       {singleVideos.descriptionContent}
+      <br />
+      <br />
+
+      {/* <SingleVideosList /> */}
+      <DeleteSingleVideo
+      // videoId={props.params.videoId}
+      // userId={props.params.userId}
+      // singleVideos={props.singleVideos}
+      />
     </div>
   );
 }

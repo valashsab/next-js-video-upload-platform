@@ -74,3 +74,15 @@ export const getSingleVideoByUserIdVideoId = cache(
     return singleVideo;
   },
 );
+
+export const deleteSingleVideoByUserIdVideoId = cache(
+  async (id: number, userId: number) => {
+    const [singleVideo] = await sql<Video[]>`
+      DELETE FROM videos
+      WHERE
+        id = ${id}
+        AND user_id = ${userId} RETURNING *
+    `;
+    return singleVideo;
+  },
+);

@@ -1,6 +1,5 @@
 export default function Footer() {
   return (
-    // <footer className="footer footer-center p-10 text-base-content rounded bg-gradient-to-r from-red-300 to-gray-700 min-h-20 ">
     <footer className="footer footer-center p-10 text-white rounded bg-custom-bg">
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
@@ -46,7 +45,7 @@ export default function Footer() {
         </div>
       </nav>
       <aside>
-        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2023 - All right reserved by Memento GmbH</p>
       </aside>
     </footer>
   );
