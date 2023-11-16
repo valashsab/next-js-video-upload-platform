@@ -37,12 +37,13 @@ export default function DeleteSingleVideo() {
       <br />
 
       <button
-      // onClick={async () =>
-      //   await deleteSingleVideoByUserIdVideoId(
-      //     props.params.videoId,
-      //     props.params.userId,
-      //     )
-      //   }
+        className="btn btn-secondary"
+        // onClick={async () =>
+        //   await deleteSingleVideoByUserIdVideoId(
+        //     props.params.videoId,
+        //     props.params.userId,
+        //     )
+        //   }
       >
         Delete
       </button>

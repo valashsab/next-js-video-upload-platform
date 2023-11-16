@@ -19,7 +19,8 @@ export default async function Header() {
 
   return (
     <div className="navbar bg-custom-bg">
-      <div className="navbar-start">
+      {/* <div className="navbar-start"> */}
+      <div className="flex-1">
         <Link className="text-black" href="/">
           <Image
             src="/images/frame.svg"
@@ -29,6 +30,7 @@ export default async function Header() {
             priority
           />
         </Link>
+        {/* </div> */}
       </div>
       <div className="navbar-center join" />
 

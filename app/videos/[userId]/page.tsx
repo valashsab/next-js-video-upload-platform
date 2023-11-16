@@ -23,7 +23,7 @@ export default async function VideosPage(props: VideosProps) {
   console.log(props);
 
   return (
-    <div className="videos-container">
+    <div className="bg-custom-bg">
       <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-white">
         Welcome to your video collection,{' '}
         {user?.userName
@@ -31,10 +31,10 @@ export default async function VideosPage(props: VideosProps) {
           : ''}
         !
       </h1>
-      <div className="video-grid">
+      <div className="grid grid-cols-4 gap-4">
         {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
         {videos.map((video) => (
-          <div key={`video-${video.id}`} className="video-item">
+          <div key={`video-${video.id}`}>
             <Link
               href="/videos/[userId]/[videoId]"
               as={`/videos/${video.userId}/${video.id}`}

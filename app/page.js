@@ -59,11 +59,16 @@ export default async function DashboardPage() {
 
       <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <img
+          {/* <img
             src="/images/stock/photo-1635805737707-575885ab0820.jpg"
             className="max-w-sm rounded-lg shadow-2xl text-black"
             alt="Screenshot how to give likes and leave comment"
+          /> */}
+          <textarea
+            placeholder="Leave a comment"
+            className="bg-custom-bg2 textarea textarea-bordered textarea-lg w-full max-w-xs"
           />
+
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
             <h1 className="text-5xl text-black font-bold">Show appreciation</h1>
             <p className="py-6 text-black">
