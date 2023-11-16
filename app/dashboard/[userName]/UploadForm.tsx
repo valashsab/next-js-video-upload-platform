@@ -90,6 +90,12 @@ export default function UploadForm(props: Props) {
 
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
+      <ul className="steps steps-vertical lg:steps-horizontal">
+        <li className="step step-primary">Register</li>
+        <li className="step step-primary">Choose plan</li>
+        <li className="step">Purchase</li>
+        <li className="step">Receive Product</li>
+      </ul>
       <form onSubmit={handleUpload} className="text-center">
         <input
           type="file"

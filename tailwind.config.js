@@ -11,7 +11,7 @@ module.exports = {
         myTheme: {
           primary: '#FFD90F',
           secondary: '#E5E4E2',
-          tertiary: '#A09BB8',
+          tertiary: '#8D83EE',
         },
       },
     ],
@@ -20,7 +20,7 @@ module.exports = {
     extend: {
       backgroundColor: {
         'custom-bg': '#CDC7E5',
-        'custom-bg2': '#FFFFFF',
+        'custom-bg2': '#000000',
       },
     },
   },

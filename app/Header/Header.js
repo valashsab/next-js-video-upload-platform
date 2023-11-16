@@ -19,7 +19,6 @@ export default async function Header() {
 
   return (
     <div className="navbar bg-custom-bg">
-      {/* <div className="navbar bg-gradient-to-r from-red-300 to-gray-700 ..."> */}
       <div className="navbar-start">
         <Link className="text-black" href="/">
           <Image
@@ -31,93 +30,80 @@ export default async function Header() {
           />
         </Link>
       </div>
-      {/* <div className="navbar-center  join">
-        <div>
-          <input
-            className="input input-bordered join-item"
-            id="searchBar"
-            name="searchBar"
-            placeholder="Search"
-          />
-        </div>
-        <select
-          className="select select-bordered join-item"
-          defaultValue="option1"
-        >
-          <option value="option1">Travel</option>
-          <option value="option2">Celebration</option>
-          <option value="option3">Sport</option>
-          <option value="option4">Nature</option>
-          <option value="option5">Education</option>
-          <option value="option6">DIY</option>
-          <option value="option7">Tutorial</option>
-        </select>
-        <div className="indicator">
-          <button className="btn join-item">Search</button>
-        </div>
-      </div> */}
+      <div className="navbar-center join" />
 
-      <div className="navbar-end">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <details>
-              <summary>
-                {' '}
-                <img
-                  src="/images/hamburger_navbar.png"
-                  width="50"
-                  height="50"
-                  alt="hamburger menu navbar"
-                />
-              </summary>
-              <ul className="p-2 bg-base-100">
-                {user ? (
-                  <>
-                    <li className="text-white bg-primary rounded p-2">
-                      {' '}
-                      {user.userName.charAt(0).toUpperCase() +
-                        user.userName.slice(1)}
-                    </li>
-                    <li>
-                      {' '}
-                      <Link
-                        className="text-white"
-                        href={`/dashboard/${user.userName}`}
-                      >
-                        Dashboard
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="text-white"
-                        href={`/videos/${user.userName}`}
-                      >
-                        Videos
-                      </Link>
-                    </li>
-                    <li className="text-white">
-                      <LogoutButton />
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      <Link className="text-white" href="/signup">
-                        Sign up
-                      </Link>
-                    </li>
-                    <li>
-                      {' '}
-                      <Link className="text-white" href="/login">
-                        Login
-                      </Link>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </details>
-          </li>
-        </ul>
+      {/* hamburger with overlay */}
+      <div className="navbar-end flex justify-end">
+        <div className="drawer drawer-end">
+          <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content">
+            {/* Page content here */}
+            <label
+              htmlFor="my-drawer-4"
+              className="drawer-button btn btn-primary"
+            >
+              <Image
+                src="/images/hamburger_navbar.png"
+                width="50"
+                height="50"
+                alt="hamburger menu navbar"
+              />
+            </label>
+          </div>
+          <div className="drawer-side">
+            <label
+              htmlFor="my-drawer-4"
+              aria-label="close sidebar"
+              className="drawer-overlay"
+            />
+            <ul className="menu p-4 w-80 min-h-full bg-base-200  bg-opacity-75 text-base-content">
+              {/* Sidebar content here */}
+              {user ? (
+                <>
+                  <li className="text-black bg-primary mt-2 rounded p-2">
+                    {' '}
+                    {user.userName.charAt(0).toUpperCase() +
+                      user.userName.slice(1)}
+                  </li>
+                  <li>
+                    {' '}
+                    <Link
+                      className="text-white"
+                      href={`/dashboard/${user.userName}`}
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="text-white"
+                      href={`/videos/${user.userName}`}
+                    >
+                      Videos
+                    </Link>
+                  </li>
+                  <li className="text-white">
+                    <LogoutButton />
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link className="text-white mt-2" href="/signup">
+                      Sign up
+                    </Link>
+                  </li>
+                  <li>
+                    {' '}
+                    <Link className="text-white mt-2" href="/login">
+                      Login
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );

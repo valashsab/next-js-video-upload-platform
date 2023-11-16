@@ -56,87 +56,120 @@ export default async function DashboardPage() {
         </div>
       </div>
       {/* Like & comment  */}
+
       <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <img
             src="/images/stock/photo-1635805737707-575885ab0820.jpg"
-            className="max-w-sm rounded-lg shadow-2xl"
-            alt="Box Office News"
+            className="max-w-sm rounded-lg shadow-2xl text-black"
+            alt="Screenshot how to give likes and leave comment"
           />
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
             <h1 className="text-5xl text-black font-bold">Show appreciation</h1>
             <p className="py-6 text-black">
               Like the videos and leave comments.
             </p>
-            {/* <button className="btn btn-primary">Get Started</button> */}
+          </div>
+        </div>
+      </div>
+      {/* carousel */}
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content text-center">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold">
+              Put together your own collection
+            </h1>
+            <div className="bg-base-200 p-4 mt-8 mb-8">
+              <div className="bg-base-200 carousel p-4 space-x-5 flex items-center justify-center mt-8 mb-8">
+                <div
+                  id="item1"
+                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
+                >
+                  <video
+                    className="rounded-box"
+                    width="620"
+                    height="540"
+                    controls
+                  >
+                    <source
+                      src="./videos/timelapse_london.mp4"
+                      type="video/mp4"
+                    />
+                    <track kind="captions" label="Timelapse from London city" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div
+                  id="item2"
+                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
+                >
+                  <video
+                    className="rounded-box"
+                    width="620"
+                    height="540"
+                    controls
+                  >
+                    <source src="./videos/beach.mp4" type="video/mp4" />
+                    <track kind="captions" label="timelapse from London city" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div
+                  id="item3"
+                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
+                >
+                  <video
+                    className="rounded-box"
+                    width="620"
+                    height="540"
+                    controls
+                  >
+                    <source src="./videos/wedding.mp4" type="video/mp4" />
+                    <track kind="captions" label="timelapse from London city" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div
+                  id="item4"
+                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
+                >
+                  <video
+                    className="rounded-box"
+                    width="620"
+                    height="540"
+                    controls
+                  >
+                    <source src="./videos/women_dancing.mp4" type="video/mp4" />
+                    <track kind="captions" label="timelapse from London city" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              <div className="flex justify-center w-full py-2 gap-2">
+                <a href="#item1" className="btn btn-xs bg-white text-black">
+                  1
+                </a>
+                <a href="#item2" className="btn btn-xs bg-white text-black">
+                  2
+                </a>
+                <a href="#item3" className="btn btn-xs bg-white text-black">
+                  3
+                </a>
+                <a href="#item4" className="btn btn-xs bg-white text-black">
+                  4
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* carousel */}
-      <div className=" max-h-screen max-w-screen-xl mx-auto carousel relative  p-4 space-x-10 flex justify center mt-8 mb-8">
-        <div
-          id="item1"
-          className=" max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
-        >
-          <video className="rounded-box" width="620" height="540" controls>
-            <source src="./videos/timelapse_london.mp4" type="video/mp4" />
-            <track kind="captions" label="Timelapse from London city" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div
-          id="item2"
-          className="carousel-item w-full items-center justify-center"
-        >
-          <video className="rounded-box" width="620" height="540" controls>
-            <source src="./videos/beach.mp4" type="video/mp4" />
-            <track kind="captions" label="timelapse from London city" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div
-          id="item3"
-          className="carousel-item w-full items-center justify-center"
-        >
-          <video className="rounded-box" width="620" height="540" controls>
-            <source src="./videos/wedding.mp4" type="video/mp4" />
-            <track kind="captions" label="timelapse from London city" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <div
-          id="item4"
-          className="  carousel-item w-full  items-center justify-center"
-        >
-          <video className="rounded-box" width="620" height="540" controls>
-            <source src="./videos/women_dancing.mp4" type="video/mp4" />
-            <track kind="captions" label="timelapse from London city" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-      <div className=" flex justify-center w-full py-2 gap-2">
-        <a href="#item1" className="btn btn-xs">
-          1
-        </a>
-        <a href="#item2" className="btn btn-xs">
-          2
-        </a>
-        <a href="#item3" className="btn btn-xs">
-          3
-        </a>
-        <a href="#item4" className="btn btn-xs">
-          4
-        </a>
-      </div>
       {/* signup & login */}
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Let's get started</h1>
-            <p className="py-6">
+            <h1 className="text-5xl font-bold text-black">Let's get started</h1>
+            <p className="py-6 text-black">
               Sign up to set up your account or login to upload your video.
             </p>
             <div className="w-full h-full items-center justify-center ">
@@ -182,7 +215,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* statistics */}
-      <div className="flex justify-center items-center h-screen">
+      <div className="bg-base-200 flex justify-center items-center h-screen">
         <div className="stats shadow">
           <div className="stat">
             <div className="stat-figure text-primary">
@@ -202,7 +235,7 @@ export default async function DashboardPage() {
             </div>
             <div className="stat-title text-primary">Uploads</div>
             <div className="stat-value text-primary">31K</div>
-            <div className="stat-desc text-primary">Jan 1st - Feb 1st</div>
+            <div className="stat-desc text-primary">Jan 1st - Oct 31st </div>
           </div>
 
           <div className="stat">

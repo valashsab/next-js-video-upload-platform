@@ -23,7 +23,7 @@ export default async function VideosPage(props: VideosProps) {
   console.log(props);
 
   return (
-    <div>
+    <div className="videos-container">
       <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-white">
         Welcome to your video collection,{' '}
         {user?.userName
@@ -31,31 +31,33 @@ export default async function VideosPage(props: VideosProps) {
           : ''}
         !
       </h1>
-      {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
-      {videos.map((video) => (
-        <div key={`video-${video.id}`}>
-          <Link
-            href="/videos/[userId]/[videoId]"
-            as={`/videos/${video.userId}/${video.id}`}
-          >
-            <Image
-              src={video.secureUrl.replace(/\.\w+$/, '.jpg')}
-              alt="Thumbnail for video"
-              width="350"
-              height="300"
-            />{' '}
-          </Link>
-          {/* <Link
+      <div className="video-grid">
+        {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
+        {videos.map((video) => (
+          <div key={`video-${video.id}`} className="video-item">
+            <Link
+              href="/videos/[userId]/[videoId]"
+              as={`/videos/${video.userId}/${video.id}`}
+            >
+              <Image
+                src={video.secureUrl.replace(/\.\w+$/, '.jpg')}
+                alt="Thumbnail for video"
+                width="350"
+                height="300"
+              />{' '}
+            </Link>
+            {/* <Link
             href="/videos/[userId]/[videoId]"
             as={`/videos/${video.userId}/${video.id}`}
           >
             {' '}
             {video.title}
           </Link> */}
-          <br />
-          <br />
-        </div>
-      ))}
+            <br />
+            <br />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

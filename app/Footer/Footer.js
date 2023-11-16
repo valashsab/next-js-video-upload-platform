@@ -1,12 +1,24 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function Footer() {
   return (
-    <footer className="footer footer-center p-10 text-white rounded bg-custom-bg">
-      <nav className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
-      </nav>
+    <footer className="footer footer-center p-10 bg-custom-bg text-primary-content">
+      <aside className="flex flex-col items-center">
+        <Link className="text-black mr-6" href="/">
+          <Image
+            src="/images/rewind_arrow_black.svg"
+            width="50"
+            height="25"
+            alt="memento logo"
+            priority
+          />{' '}
+        </Link>
+        <p className="font-bold">
+          Memento GmbH <br />
+        </p>
+        <p>Copyright © 2023 - All right reserved</p>
+      </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
           <a>
@@ -44,9 +56,6 @@ export default function Footer() {
           </a>
         </div>
       </nav>
-      <aside>
-        <p>Copyright © 2023 - All right reserved by Memento GmbH</p>
-      </aside>
     </footer>
   );
 }
