@@ -44,6 +44,7 @@ export default async function DashboardPage() {
               visual media for you and everyone you want to share these with.
               Create your personal digital video album.
             </p>
+
             {/* <button className="btn btn-primary">Get Started</button> */}
           </div>
           <div className="col-span-1 p-8 mt-10">
@@ -220,7 +221,7 @@ export default async function DashboardPage() {
       </div>
 
       {/* statistics */}
-      <div className="bg-base-200 flex justify-center items-center h-screen">
+      <div className="bg-base-200 flex justify-center items-center h-40">
         <div className="stats shadow">
           <div className="stat">
             <div className="stat-figure text-primary">

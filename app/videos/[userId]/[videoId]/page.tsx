@@ -54,40 +54,24 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
       <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content text-center">
           {/* <div className="max-w-md"> */}
-          <video controls width="820" height="740">
-            <source src={singleVideos.secureUrl} type="video/mp4" />{' '}
-            <track kind="captions" srcLang="en" label="English" />
-            Your browser does not support the video tag.
-          </video>
-          <div>
-            <h1 className="text-5xl text-black font-bold">
-              {singleVideos.title}
-            </h1>
-            <p className="py-6 text-black">
-              {' '}
-              {singleVideos.descriptionContent}
-            </p>
-            <DeleteSingleVideo />{' '}
-            <button className="btn btn-primary mt-4">Edit</button>
-            {/* </div> */}
-          </div>
-        </div>
-      </div>
-
-      <div className="hero min-h-screen bg-custom-bg">
-        <div className="hero-content flex-col lg:flex-row">
-          <video controls width="620" height="540">
-            <source src={singleVideos.secureUrl} type="video/mp4" />{' '}
-            <track kind="captions" srcLang="en" label="English" />
-            Your browser does not support the video tag.
-          </video>
-          <div>
-            <h1 className="text-5xl text-black font-bold">
-              {' '}
-              {singleVideos.descriptionContent}
-            </h1>
-            <div className="text-black">{singleVideos.title}</div>
-            <br /> <DeleteSingleVideo />
+          <div className="rounded-lg overflow-hidden mt-1">
+            <video controls width="820" height="740">
+              <source src={singleVideos.secureUrl} type="video/mp4" />{' '}
+              <track kind="captions" srcLang="en" label="English" />
+              Your browser does not support the video tag.
+            </video>
+            <div>
+              <h1 className="text-5xl text-black font-bold mt-2">
+                {singleVideos.title}
+              </h1>
+              <p className="py-2 text-black">
+                {' '}
+                {singleVideos.descriptionContent}
+              </p>
+              <DeleteSingleVideo />{' '}
+              <button className="btn btn-primary mt-2">Edit</button>
+              {/* </div> */}
+            </div>
           </div>
         </div>
       </div>

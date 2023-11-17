@@ -31,32 +31,35 @@ export default async function VideosPage(props: VideosProps) {
           : ''}
         !
       </h1>
-      <div className="grid grid-cols-4 gap-4">
-        {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
-        {videos.map((video) => (
-          <div key={`video-${video.id}`}>
-            <Link
-              href="/videos/[userId]/[videoId]"
-              as={`/videos/${video.userId}/${video.id}`}
-            >
-              <Image
-                src={video.secureUrl.replace(/\.\w+$/, '.jpg')}
-                alt="Thumbnail for video"
-                width="350"
-                height="300"
-              />{' '}
-            </Link>
-            {/* <Link
-            href="/videos/[userId]/[videoId]"
-            as={`/videos/${video.userId}/${video.id}`}
-          >
-            {' '}
-            {video.title}
-          </Link> */}
-            <br />
-            <br />
-          </div>
-        ))}
+      <h2 className="text-black text-center">
+        Click on the thumbnail to watch the video
+      </h2>
+
+      <div className="flex justify-center items-center h-full mt-20">
+        <div className="grid grid-cols-3 gap-4 w-50%">
+          {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
+          {videos.map((video) => (
+            <div key={`video-${video.id}`}>
+              <Link
+                href="/videos/[userId]/[videoId]"
+                as={`/videos/${video.userId}/${video.id}`}
+              >
+                <Image
+                  src={video.secureUrl.replace(/\.\w+$/, '.jpg')}
+                  alt="Thumbnail for video"
+                  width="350"
+                  height="300"
+                  className="rounded-lg"
+                />{' '}
+                <div className="text-black"> {video.title} </div>
+              </Link>
+
+              <br />
+              <br />
+            </div>
+          ))}
+        </div>
+        h
       </div>
     </div>
   );
