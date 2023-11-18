@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { User } from '../../../../migrations/00000-createTableUsers';
 import { Video } from '../../../../migrations/00002-createTableVideos';
@@ -42,33 +43,52 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
   console.log('UserId ', props.params.userId);
 
   return (
-    <div>
-      <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-black">
+    <div className="flex flex-col items-center justify-center bg-custom-bg ">
+      {' '}
+      <h1 className="text-center font-bold leading-9 tracking-tight text-white text-3xl mt-4">
         Relive your memories,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
           : ''}
         !
       </h1>
-
+      <h2 className="text-info text-center mt-4">
+        Sit back, relax. Action!{' '}
+        <div className="flex justify-center items-center mt-4">
+          <Image
+            src="/images/video-icon.png"
+            width="50"
+            height="25"
+            alt="memento logo"
+            priority
+            className="responsive"
+          />
+        </div>
+      </h2>
       <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content text-center">
-          {/* <div className="max-w-md"> */}
-          <div className="rounded-lg overflow-hidden mt-1">
-            <video controls width="820" height="740">
+          <div className="rounded-lg overflow-hidden">
+            <video
+              controls
+              width="820"
+              height="740"
+              className="mx-auto max-w-full"
+            >
               <source src={singleVideos.secureUrl} type="video/mp4" />{' '}
               <track kind="captions" srcLang="en" label="English" />
               Your browser does not support the video tag.
             </video>
-            <div>
-              <h1 className="text-5xl text-black font-bold mt-2">
+            <div className="text-center">
+              {' '}
+              <h1 className="text-2xl text-black font-bold mt-4">
                 {singleVideos.title}
               </h1>
               <p className="py-2 text-black">
                 {' '}
                 {singleVideos.descriptionContent}
               </p>
-              <DeleteSingleVideo />{' '}
+              {/* functionality in the progress */}
+              <DeleteSingleVideo /> {/* future functionality  */}
               <button className="btn btn-primary mt-2">Edit</button>
               {/* </div> */}
             </div>

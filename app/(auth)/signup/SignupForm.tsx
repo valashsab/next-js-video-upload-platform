@@ -16,6 +16,16 @@ export default function SignupForm() {
 
   async function handleSignup(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (
+      !userName.trim() ||
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !email.trim() ||
+      !password.trim()
+    ) {
+      setErrors([{ message: 'All input fields are required.' }]);
+      return;
+    }
 
     const response = await fetch('/api/signup', {
       method: 'POST',
@@ -43,13 +53,14 @@ export default function SignupForm() {
   }
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col items-center">
         <Image
-          src="/images/rewind_arrow_purple.svg"
+          src="/images/user-icon.png"
           width="50"
           height="25"
           alt="memento logo"
           priority
+          className="responsive"
         />
         <h1 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
           Sign in to your account
@@ -60,6 +71,7 @@ export default function SignupForm() {
         <form
           className="space-y-6"
           onSubmit={async (event) => await handleSignup(event)}
+          noValidate
         >
           <div>
             <div className="flex items-center justify-between">
@@ -168,14 +180,14 @@ export default function SignupForm() {
           </div>
 
           <div className="mt-10">
-            {/* <button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"> */}
             <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Sign up
             </button>
           </div>
+
           {errors.map((error) => (
             <div
-              className="alert alert-error border-2 border-red-500 bg-red-100 text-red-600 mt-2"
+              className="alert alert-error  bg-red-100 text-red-500 mt-2"
               key={`error-${error.message}`}
             >
               Error: {error.message}

@@ -25,16 +25,16 @@ export default async function UserDashboardPage({ params }: Props) {
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
       <div className="text-center mb-4">
-        <h1 className="font-bold text-black">
+        <h1 className="font-bold text-white text-3xl leading-9 tracking-tight text-center">
           Welcome to your dashboard,{' '}
           {params.userName
             ? params.userName.charAt(0).toUpperCase() + params.userName.slice(1)
             : ''}
           !
         </h1>
-        <p className="text-black">
-          Ready to upload your memories? Let's get it started!{' '}
-        </p>
+        <h2 className="text-info text-center mt-4">
+          Ready to upload your stories? Let's get it started!{' '}
+        </h2>
         D
       </div>
       <UploadForm user={user} />

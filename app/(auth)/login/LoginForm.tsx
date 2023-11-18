@@ -16,6 +16,10 @@ export default function LoginForm(props: Props) {
 
   async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!userName.trim() || !password.trim()) {
+      setErrors([{ message: 'Username and password are required.' }]);
+      return;
+    }
 
     const response = await fetch('/api/login', {
       method: 'POST',
@@ -49,9 +53,9 @@ export default function LoginForm(props: Props) {
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col items-center">
         <Image
-          src="/images/rewind_arrow_purple.svg"
+          src="/images/user-icon.png"
           width="50"
           height="25"
           alt="memento logo"
@@ -66,6 +70,7 @@ export default function LoginForm(props: Props) {
         <form
           className="space-y-6"
           onSubmit={async (event) => await handleLogin(event)}
+          noValidate
         >
           <div>
             <label
@@ -83,6 +88,16 @@ export default function LoginForm(props: Props) {
                 required
               />
             </div>
+            {errors.map((error) =>
+              error.message.includes('User name') ? (
+                <div
+                  className="alert alert-error  bg-red-100 text-red-600"
+                  key={`error-${error.message}`}
+                >
+                  {error.message}
+                </div>
+              ) : null,
+            )}
           </div>
           <div>
             <div className="mt-2">
@@ -114,7 +129,7 @@ export default function LoginForm(props: Props) {
             </div>
             {errors.map((error) => (
               <div
-                className="alert alert-error border-2 border-red-500 bg-red-100 text-red-600"
+                className="alert alert-error mt-4 bg-red-100 text-red-600"
                 key={`error-${error.message}`}
               >
                 Error: {error.message}
@@ -122,6 +137,7 @@ export default function LoginForm(props: Props) {
             ))}
           </div>
         </form>
+
         <p className="mt-10 text-center text-sm text-gray-500">
           Not yet a user?{' '}
           <Link

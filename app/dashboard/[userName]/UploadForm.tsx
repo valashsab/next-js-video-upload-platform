@@ -53,9 +53,10 @@ export default function UploadForm(props: Props) {
           setUploadError('An error occurred while uploading the file.');
           console.log(error);
         });
-    } else {
-      setUploadError('Please select a file to upload.');
     }
+    // } else {
+    //   setUploadError('Please select a file to upload.');
+    // }
   };
 
   const handleAddedVideoData = (event: React.FormEvent) => {
@@ -86,7 +87,6 @@ export default function UploadForm(props: Props) {
         console.error('Error:', error);
       });
 
-    // router.push(`/videos/${props.user?.userName}`);
     router.push(`/videos/${props.user?.id}`);
     router.refresh();
   };
@@ -102,10 +102,29 @@ export default function UploadForm(props: Props) {
         </ul>
       </div>
       <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
+        <div className="card-body flex items-center">
           {' '}
           {!selectedFile && (
-            <p className="text-white">Please select a file to upload.</p>
+            <p className="text-info  flex items-center">
+              {' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="stroke-info shrink-0 w-6 h-6 mr-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Please select a file to upload.
+            </p>
+          )}
+          {formSubmitted && !selectedFile && (
+            <p className="text-red-500">File upload required.</p>
           )}
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form
@@ -119,8 +138,8 @@ export default function UploadForm(props: Props) {
                 accept="video/*"
                 className="file-input file-input-bordered file-input-primary w-full max-w-xs text-black"
                 onChange={handleFileChange}
-              />
-              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-2">
+              />{' '}
+              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5">
                 Upload
               </button>
             </form>
@@ -129,8 +148,7 @@ export default function UploadForm(props: Props) {
       </div>
 
       {/* 1b.Watch preview */}
-
-      <div className="row-start-1 col-start-3">
+      <div className="row-start-1 col-start-3 ml-10">
         {uploadError !== null && <p className="text-red-500">{uploadError}</p>}
         {!!secureUrl && (
           <video width="420" height="340" controls className="rounded-lg">
@@ -141,9 +159,7 @@ export default function UploadForm(props: Props) {
         )}
       </div>
       {/* 2.add video details */}
-
-      {/* original form */}
-      <div className="row-start-2 col-start-1 space-y-0">
+      <div className="row-start-2 col-start-1 space-y-0 mt-5 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
         {' '}
         <ul className="steps steps-vertical">
           <li className="step">Upload & Preview</li>
@@ -152,10 +168,24 @@ export default function UploadForm(props: Props) {
         </ul>
       </div>
 
-      <div className="card w-96 bg-base-100 shadow-xl space-y-0">
-        <div className="card-body">
+      <div className="card w-96 bg-base-100 shadow-xl space-y-0 mt-5">
+        <div className="card-body flex items-center">
           {!selectedFile && (
-            <p className="text-white">
+            <p className="text-info flex items-center">
+              {' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="stroke-info shrink-0 w-6 h-6 mr-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
               Form is disabled unless a file is uploaded.
             </p>
           )}
@@ -204,11 +234,6 @@ export default function UploadForm(props: Props) {
               <br />
               {/* 3.post video */}
               <div className="row-start-3 col-start-2">
-                {formSubmitted && !selectedFile && (
-                  <p className="text-red-500">
-                    Please select a file to upload.
-                  </p>
-                )}
                 <button
                   className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   disabled={!selectedFile}

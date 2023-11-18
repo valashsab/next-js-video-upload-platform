@@ -24,17 +24,27 @@ export default async function VideosPage(props: VideosProps) {
 
   return (
     <div className="bg-custom-bg">
-      <h1 className="bg-custom-bg text-center text-2xl font-bold leading-9 tracking-tight text-white">
+      <h1 className="bg-custom-bg text-center text-3xl font-bold leading-9 tracking-tight text-white">
         Welcome to your video collection,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
           : ''}
         !
       </h1>
-      <h2 className="text-black text-center">
-        Click on the thumbnail to watch the video
+      <h2 className="text-info text-center mt-4">
+        Click on the thumbnail to watch the video{' '}
+        <div className="flex justify-center items-center mt-4">
+          <Image
+            src="/images/press-button.png"
+            width="50"
+            height="25"
+            alt="memento logo"
+            priority
+            style={{ transform: 'rotate(-180deg)' }}
+            className="responsive"
+          />
+        </div>
       </h2>
-
       <div className="flex justify-center items-center h-full mt-20">
         <div className="grid grid-cols-3 gap-4 w-50%">
           {/* <VideosList id={props.id} userId={user?.id as number} videos={videos} /> */}
@@ -46,12 +56,12 @@ export default async function VideosPage(props: VideosProps) {
               >
                 <Image
                   src={video.secureUrl.replace(/\.\w+$/, '.jpg')}
-                  alt="Thumbnail for video"
-                  width="350"
-                  height="300"
-                  className="rounded-lg"
+                  alt="Thumbnail for the uploaded video"
+                  width="450"
+                  height="400"
+                  className="rounded-lg responsive"
                 />{' '}
-                <div className="text-black"> {video.title} </div>
+                <div className="text-black mt-2"> {video.title} </div>
               </Link>
 
               <br />
@@ -60,7 +70,6 @@ export default async function VideosPage(props: VideosProps) {
             </div>
           ))}
         </div>
-        h
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ export default function Footer() {
             height="25"
             alt="memento logo"
             priority
+            className="responsive"
           />{' '}
         </Link>
         <p className="font-bold">
