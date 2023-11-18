@@ -16,13 +16,16 @@ export default async function DashboardPage() {
   return (
     <div className="bg-custom-bg w-full h-full">
       {/* hero */}
-      <div
-        className="hero min-h-screen"
-        style={{
-          backgroundImage:
-            'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)',
-        }}
-      >
+      <div className="hero min-h-screen relative">
+        <Image
+          src="/images/colorful-sunset.jpg"
+          layout="fill"
+          objectFit="cover"
+          alt="memento logo"
+          priority
+          className="responsive"
+          style={{ opacity: 0.7 }}
+        />
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
           <div className="max-w-md">
