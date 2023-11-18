@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 // import { User } from '../migrations/00000-createTableUsers';
 import { getUserBySessionToken } from './database/users';
@@ -65,12 +66,20 @@ export default async function DashboardPage() {
             className="max-w-sm rounded-lg shadow-2xl text-black"
             alt="Screenshot how to give likes and leave comment"
           /> */}
-          <div>
+          <div className="relative">
+            <Image
+              src="/images/woman-car.jpg"
+              width={400}
+              height={350}
+              alt="memento logo"
+              priority
+              className="responsive  absolute bottom-11 right-60"
+            />
             <textarea
               placeholder="Leave a comment"
-              className="bg-custom-bg2 textarea textarea-bordered textarea-lg w-full max-w-xs"
+              className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs absolute bottom-1 right-50"
             />
-            <button className="btn">
+            <button className="btn absolute bottom-1 right-20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -92,113 +101,83 @@ export default async function DashboardPage() {
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
             <h1 className="text-5xl text-black font-bold">Show appreciation</h1>
             <p className="py-6 text-black">
-              Like the videos and leave comments.
+              Share your thoughts. Like the videos and leave comments.
             </p>
           </div>
         </div>
       </div>
       {/* carousel */}
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen bg-base-200 flex flex-col items-center justify-center">
         <div className="hero-content text-center">
-          <div className="max-w-md">
+          <div className="max-w-md mb-8">
             <h1 className="text-5xl font-bold">
               Put together your own collection
             </h1>
-            <div className="bg-base-200 p-4 mt-8 mb-8">
-              <div className="bg-base-200 carousel p-4 space-x-5 flex items-center justify-center mt-8 mb-8">
-                <div
-                  id="item1"
-                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
-                >
-                  <video
-                    className="rounded-box"
-                    width="620"
-                    height="540"
-                    controls
-                  >
-                    <source
-                      src="./videos/timelapse_london.mp4"
-                      type="video/mp4"
-                    />
-                    <track kind="captions" label="Timelapse from London city" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div
-                  id="item2"
-                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
-                >
-                  <video
-                    className="rounded-box"
-                    width="620"
-                    height="540"
-                    controls
-                  >
-                    <source src="./videos/beach.mp4" type="video/mp4" />
-                    <track kind="captions" label="timelapse from London city" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div
-                  id="item3"
-                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
-                >
-                  <video
-                    className="rounded-box"
-                    width="620"
-                    height="540"
-                    controls
-                  >
-                    <source src="./videos/wedding.mp4" type="video/mp4" />
-                    <track kind="captions" label="timelapse from London city" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div
-                  id="item4"
-                  className="max-h-screen max-w-screen-xl mx-auto carousel-item w-full items-center justify-center"
-                >
-                  <video
-                    className="rounded-box"
-                    width="620"
-                    height="540"
-                    controls
-                  >
-                    <source src="./videos/women_dancing.mp4" type="video/mp4" />
-                    <track kind="captions" label="timelapse from London city" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              </div>
-              <div className="flex justify-center w-full py-2 gap-2">
-                <a href="#item1" className="btn btn-xs bg-white text-black">
-                  1
-                </a>
-                <a href="#item2" className="btn btn-xs bg-white text-black">
-                  2
-                </a>
-                <a href="#item3" className="btn btn-xs bg-white text-black">
-                  3
-                </a>
-                <a href="#item4" className="btn btn-xs bg-white text-black">
-                  4
-                </a>
-              </div>
-            </div>
+          </div>
+        </div>
+        <div className="carousel carousel-center rounded-box">
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/timelapse_london.mp4" type="video/mp4" />
+              <track kind="captions" label="Timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/beach.mp4" type="video/mp4" />
+              <track kind="captions" label="timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/wedding.mp4" type="video/mp4" />
+              <track kind="captions" label="timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/women_dancing.mp4" type="video/mp4" />
+              <track kind="captions" label="timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/traffic_vietnam.mp4" type="video/mp4" />
+              <track kind="captions" label="timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/waterfall.mp4" type="video/mp4" />
+              <track kind="captions" label="timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="carousel-item">
+            <video className="rounded-box" width="620" height="540" controls>
+              <source src="./videos/man_in_nature.mp4" type="video/mp4" />
+              <track kind="captions" label="timelapse from London city" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
 
-      {/* signup & login */}
+      {/* signup & login OR dashboard*/}
       <div className="hero min-h-screen bg-custom-bg">
-        <div className="hero-content text-center">
+        <div className="hero-content text-center rounded">
           <div className="max-w-md">
             <h1 className="text-5xl font-bold text-black">Let's get started</h1>
-            <p className="py-6 text-black">
+            <p className="py-6 text-black mt-4">
               Sign up to set up your account or login to upload your video.
             </p>
             <div className="w-full h-full items-center justify-center ">
-              <div className="flex items-center justify-center p-2 text-black mb-8 mt-8">
+              <div className="flex items-center justify-center p-2 text-black mb-8 mt-4">
                 {user ? (
                   <div className="text-center">
                     <p>
@@ -211,7 +190,7 @@ export default async function DashboardPage() {
                       <Link href={`/dashboard/${user.userName}`}>
                         <div>
                           <div className="mt-5">
-                            <button className="justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <button className="justify-center rounded-md btn-primary px-4 py-2 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                               Dashboard
                             </button>
                           </div>

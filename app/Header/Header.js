@@ -18,7 +18,7 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
-    <div className="navbar bg-custom-bg">
+    <div className="navbar bg-custom-bg flex">
       {/* <div className="navbar-start"> */}
       <div className="flex-1">
         <Link className="text-black" href="/">
