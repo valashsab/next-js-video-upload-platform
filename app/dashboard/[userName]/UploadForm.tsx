@@ -92,7 +92,7 @@ export default function UploadForm(props: Props) {
   };
 
   return (
-    <div className="bg-custom-bg min-h-screen  sm:grid grid-rows-3 grid-cols-3 items-center justify-center text-white gap-1">
+    <div className="bg-custom-bg min-h-screen  sm:grid grid-rows-3 grid-cols-3 items-center justify-center text-white gap-1 ">
       {/* 1a.upload */}
       <div className="row-start-1 col-start-1">
         <ul className="steps steps-vertical">

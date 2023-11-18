@@ -26,10 +26,10 @@ export default async function DashboardPage() {
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Relive your memories </h1>
-            <p className="mb-5">
+            <h1 className="mb-5 text-8xl font-bold">Relive your memories </h1>
+            <h2 className="mb-5 text-2xl normal-weight">
               Videos kept as a reminder of unforgettable moments
-            </p>
+            </h2>
           </div>
         </div>
       </div>
@@ -37,10 +37,10 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
-            <h1 className="text-5xl font-bold text-white mb-4">
+            <h1 className="text-8xl font-bold text-white mb-4">
               Upload & Rewatch
             </h1>
-            <p className="py-6">
+            <p className="py-6 text-xl">
               Access to celebrations, travels, memorable events in form of
               visual media for you and everyone you want to share these with.
               Create your personal digital video album.
@@ -73,13 +73,13 @@ export default async function DashboardPage() {
               height={350}
               alt="memento logo"
               priority
-              className="responsive  absolute bottom-11 right-60"
+              className="responsive  absolute bottom-5 right-60"
             />
             <textarea
               placeholder="Leave a comment"
-              className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs absolute bottom-1 right-50"
+              className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs absolute bottom-0.5 right-40"
             />
-            <button className="btn absolute bottom-1 right-20">
+            <button className="btn absolute bottom-0.5 right-20">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -99,8 +99,8 @@ export default async function DashboardPage() {
           </div>
 
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
-            <h1 className="text-5xl text-black font-bold">Show appreciation</h1>
-            <p className="py-6 text-black">
+            <h1 className="text-8xl text-black font-bold">Show appreciation</h1>
+            <p className="py-6 text-black text-xl">
               Share your thoughts. Like the videos and leave comments.
             </p>
           </div>
@@ -110,7 +110,7 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen bg-base-200 flex flex-col items-center justify-center">
         <div className="hero-content text-center">
           <div className="max-w-md mb-8">
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-8xl font-bold">
               Put together your own collection
             </h1>
           </div>
@@ -172,14 +172,14 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content text-center rounded">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold text-black">Let's get started</h1>
-            <p className="py-6 text-black mt-4">
+            <h1 className="text-8xl font-bold text-black">Let's get started</h1>
+            <p className="py-6 text-black text-xl mt-4">
               Sign up to set up your account or login to upload your video.
             </p>
             <div className="w-full h-full items-center justify-center ">
               <div className="flex items-center justify-center p-2 text-black mb-8 mt-4">
                 {user ? (
-                  <div className="text-center">
+                  <div className="text-center text-xl">
                     <p>
                       {' '}
                       You are already logged in,{' '}

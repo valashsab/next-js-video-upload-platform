@@ -23,6 +23,10 @@ module.exports = {
         'custom-bg': '#CDC7E5',
         'custom-bg2': '#000000',
       },
+      fontFamily: {
+        sans: ['var(--font-open-san)'],
+        mono: ['var(--font-shadows-into-light)'],
+      },
     },
   },
   plugins: [require('daisyui'), require('@tailwindcss/forms')],

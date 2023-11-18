@@ -6,9 +6,6 @@ import LogoutButton from '../api/(auth)/logout/LogoutButton';
 import { getUserBySessionToken } from '../database/users';
 
 export default async function Header() {
-  // Task: Display the logged in user's username in the navigation bar and hide the login and register links depending on whether the user is logged in or not
-  // 3. Make decision whether to show the login and register links or not
-
   // 1. Checking if the sessionToken cookie exists
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
@@ -18,28 +15,24 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
-    <div className="navbar bg-custom-bg flex">
-      {/* <div className="navbar-start"> */}
+    <div className="navbar bg-custom-bg flex items-center">
+      {/* <div className="navbar bg-custom-bg"> */}
+
       <div className="flex-1">
         <Link className="text-black" href="/">
           <Image
             src="/images/frame.svg"
-            width="350"
-            height="300"
+            width={200}
+            height={150}
             alt="memento logo"
             priority
           />
         </Link>
-        {/* </div> */}
       </div>
-      <div className="navbar-center join" />
-
-      {/* hamburger with overlay */}
-      <div className="navbar-end flex justify-end">
+      <div className="flex-none">
         <div className="drawer drawer-end">
           <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
-            {/* Page content here */}
             <label
               htmlFor="my-drawer-4"
               className="drawer-button btn btn-primary"
@@ -58,8 +51,7 @@ export default async function Header() {
               aria-label="close sidebar"
               className="drawer-overlay"
             />
-            <ul className="menu p-4 w-80 min-h-full bg-base-200  bg-opacity-75 text-base-content">
-              {/* Sidebar content here */}
+            <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {user ? (
                 <>
                   <li className="text-black bg-primary mt-2 rounded p-2">
@@ -106,6 +98,21 @@ export default async function Header() {
             </ul>
           </div>
         </div>
+        {/* <ul className="menu menu-horizontal px-1">
+          <li>
+            <details>
+              <summary className="text-black">Hamburger icon</summary>
+              <ul className="p-2 bg-base-100 text-black">
+                <li>
+                  <a>Sign up</a>
+                </li>
+                <li>
+                  <a>Login</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+        </ul> */}
       </div>
     </div>
   );

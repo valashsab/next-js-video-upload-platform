@@ -2,14 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face {
-  font-family: 'Homemade Apple';
-  font-style: cursive;
-  font-weight: 400;
-  src: url('/path-to-your-font/Inconsolata-200.woff2') format('woff2');
-} */
-
 /* .error {
   color: red;
   background: grey;
 } */
+
+html {
+  font-family: var(--font-open-sans);
+}
+
+h1,
+h2 {
+  font-family: var(--font-shadows-into-light);
+}
+
+.normal-weight {
+  font-weight: var(--font-weight-400);
+}
+
+.medium-weight {
+  font-weight: var(--font-weight-500);
+}
+
+.light-weight {
+  font-weight: var(--font-weight-300);
+}

@@ -24,7 +24,7 @@ export default async function VideosPage(props: VideosProps) {
 
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col  items-center">
-      <h1 className="bg-custom-bg text-center text-3xl font-bold leading-9 tracking-tight text-white">
+      <h1 className="bg-custom-bg text-center text-6xl font-bold leading-9 tracking-tight text-white mt-10">
         Welcome to your video collection,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
@@ -32,7 +32,7 @@ export default async function VideosPage(props: VideosProps) {
         !
       </h1>
       {videos.length > 0 ? (
-        <h2 className="text-info text-center mt-4">
+        <h2 className="text-info text-center text-2xl mt-4">
           Click on the thumbnail to watch the video{' '}
           <div className="flex justify-center items-center mt-4">
             <Image

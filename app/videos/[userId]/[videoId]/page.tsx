@@ -43,16 +43,16 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
   console.log('UserId ', props.params.userId);
 
   return (
-    <div className="flex flex-col items-center justify-center bg-custom-bg ">
+    <div className="flex flex-col items-center justify-center bg-custom-bg">
       {' '}
-      <h1 className="text-center font-bold leading-9 tracking-tight text-white text-3xl mt-4">
+      <h1 className="text-center font-bold leading-9 tracking-tight text-white text-6xl mt-10">
         Relive your memories,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
           : ''}
         !
       </h1>
-      <h2 className="text-info text-center mt-4">
+      <h2 className="text-info text-center text-2xl mt-4">
         Sit back, relax. Action!{' '}
         <div className="flex justify-center items-center mt-4">
           <Image
