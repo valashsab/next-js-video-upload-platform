@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 // import { string } from 'zod';
@@ -62,7 +63,7 @@ export default function SignupForm() {
           priority
           className="responsive"
         />
-        <h1 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
+        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-white">
           Sign in to your account
         </h1>
       </div>
@@ -76,7 +77,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-white"
                 htmlFor="userName"
               >
                 User name
@@ -97,7 +98,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-white"
                 htmlFor="firstName"
               >
                 First name
@@ -118,7 +119,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-white"
                 htmlFor="lastName"
               >
                 Last name
@@ -139,7 +140,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-white"
                 htmlFor="email"
               >
                 Email{' '}
@@ -160,7 +161,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-white"
                 htmlFor="password"
               >
                 Password{' '}
@@ -180,7 +181,7 @@ export default function SignupForm() {
           </div>
 
           <div className="mt-10">
-            <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Sign up
             </button>
           </div>
@@ -194,6 +195,15 @@ export default function SignupForm() {
             </div>
           ))}
         </form>
+        <p className="mt-10 text-center text-base text-gray-500">
+          You already created a user?{' '}
+          <Link
+            href="/login"
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          >
+            Login here
+          </Link>
+        </p>
       </div>
     </div>
   );
