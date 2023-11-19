@@ -64,44 +64,44 @@ export default async function DashboardPage() {
 
       <div className="hero min-h-screen bg-custom-bg">
         <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* <img
-            src="/images/stock/photo-1635805737707-575885ab0820.jpg"
-            className="max-w-sm rounded-lg shadow-2xl text-black"
-            alt="Screenshot how to give likes and leave comment"
-          /> */}
           <div className="relative">
-            <Image
-              src="/images/woman-car.jpg"
-              width={400}
-              height={350}
-              alt="memento logo"
-              priority
-              className="responsive  absolute bottom-5 right-60"
-            />
-            <textarea
-              placeholder="Leave a comment"
-              className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs absolute bottom-0.5 right-40"
-            />
-            <button className="btn absolute bottom-0.5 right-20">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            <div className="flex flex-col lg:flex-row items-center">
+              <Image
+                src="/images/woman-car.jpg"
+                width={400}
+                height={350}
+                alt="memento logo"
+                priority
+                className="responsive mb-4 lg:mb-0 lg:mr-4"
+              />
+              <div className="flex flex-col">
+                <textarea
+                  placeholder="Leave a comment"
+                  className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs mb-2 lg:mb-4 lg:mr-2 lg:mt-20 lg:ml-0.1"
                 />
-              </svg>
-              Like
-            </button>
+                {/* <button className="btn absolute top-60 right-30"> */}
+                <button className="btn absolute mb-4 lg:mb-5 lg:mr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                  Like
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
+          <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8 ">
             <h1 className="text-8xl text-black font-bold">Show appreciation</h1>
             <p className="py-6 text-black text-xl">
               Share your thoughts. Like the videos and leave comments.
