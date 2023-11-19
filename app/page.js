@@ -30,7 +30,7 @@ export default async function DashboardPage() {
         <div className="hero-content text-center text-black">
           <div className="max-w-md">
             <h1 className="mb-5 text-8xl font-bold">Relive your memories </h1>
-            <h2 className="mb-5 text-2xl normal-weight">
+            <h2 className="mb-5 text-2xl font-semibold">
               Videos kept as a reminder of unforgettable moments
             </h2>
           </div>
