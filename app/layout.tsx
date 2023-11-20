@@ -1,5 +1,6 @@
 import './globals.css';
 import { Open_Sans, Shadows_Into_Light } from 'next/font/google';
+import { ReactNode } from 'react';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
@@ -21,7 +22,12 @@ export const metadata = {
   description: 'Where memories can be relived.',
 };
 
-export default function RootLayout({ children }) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+// export default function RootLayout({ children }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${openSans.variable} ${shadowsIntoLight.variable}`}>
