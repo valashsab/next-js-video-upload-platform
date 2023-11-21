@@ -2,12 +2,13 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-type Props = { user: { id: number; userName: string } | undefined };
+type Props = {
+  user: { id: number; userName: string } | undefined;
+  cloudName: string | undefined;
+  uploadPreset: string | undefined;
+};
 
 export default function UploadForm(props: Props) {
-  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
-
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [secureUrl, setSecureUrl] = useState<string | null>(null);
@@ -34,7 +35,7 @@ export default function UploadForm(props: Props) {
       formData.append('file', selectedFile);
 
       fetch(
-        `https://api.cloudinary.com/v1_1/${cloudName}/video/upload?upload_preset=${uploadPreset}`,
+        `https://api.cloudinary.com/v1_1/${props.cloudName}/video/upload?upload_preset=${props.uploadPreset}`,
         {
           method: 'POST',
           body: formData,

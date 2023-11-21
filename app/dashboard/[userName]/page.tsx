@@ -10,6 +10,8 @@ type Props = {
 };
 
 export default async function UserDashboardPage({ params }: Props) {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
   // 1. Checking if the sessionToken cookie exists
   const cookieStore = cookies();
   const sessionToken = cookieStore.get('sessionToken');
@@ -37,7 +39,11 @@ export default async function UserDashboardPage({ params }: Props) {
         </h2>
       </div>
 
-      <UploadForm user={user} />
+      <UploadForm
+        user={user}
+        cloudName={cloudName}
+        uploadPreset={uploadPreset}
+      />
     </div>
   );
 }
