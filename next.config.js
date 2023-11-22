@@ -5,7 +5,8 @@ const nextConfig = {
     // serverActions: true,
   },
   images: {
-    domains: ['res.cloudinary.com'],
+    // domains: ['res.cloudinary.com'],
+    remotePatterns: ['res.cloudinary.com'],
   },
   // Add the domain for videos
   // video: {

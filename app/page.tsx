@@ -21,7 +21,7 @@ export default async function DashboardPage() {
           src="/images/colorful-sunset.jpg"
           layout="fill"
           objectFit="cover"
-          alt="memento logo"
+          alt="colorful sunset"
           priority
           className="responsive"
           style={{ opacity: 0.7 }}
@@ -29,7 +29,7 @@ export default async function DashboardPage() {
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
           <div className="max-w-md">
-            <h1 className="mb-5 text-8xl font-bold">Relive your memories </h1>
+            <h1 className="mb-5 text-8xl font-bold">Relive your memories</h1>
             <h2 className="mb-5 text-2xl font-semibold">
               Videos kept as a reminder of unforgettable moments
             </h2>
@@ -261,7 +261,7 @@ export default async function DashboardPage() {
                 />
               </svg>
             </div>
-            <div className="stat-title text-primary">New Users</div>
+            <div className="stat-title text-primary">Users</div>
             <div className="stat-value text-primary">4,200</div>
             <div className="stat-desc text-primary">↗︎ 400 (22%)</div>
           </div>
