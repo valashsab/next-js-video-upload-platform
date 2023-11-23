@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# MEMENTO
 
-## Getting Started
+## Description
 
-First, run the development server:
+Hello and welcome!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+MEMENTO, is full stack web application. A digital video album, enabling users to save videos from different occasions - may it be birthdays, travels, graduations and other types of events in life. The reason why I decided to create memento is since I used to capture my adventures with my GoPro and put together videos as a souvenir, I feel this is a great outlet to collect these memories on a platform and be able to rewatch and relive those mementos, as well as show your friends and relatives. That’s how Memento was born.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Subsequently in order to extend and upgrade the matcha e-commerce-store experience the following features will be added:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Search bar permitting to browse for specific video categories
+- Enable users to like videos and leave comments
+- Deletion and edit of video details
+- Accessibility features to accomodate a diverse range of users and optimise UX
+- Video visibility: set video status to public or private mode
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Please take your time and browse through the web application. If you have any feedback or suggestions, please feel free to reach out to me.
 
-## Learn More
+Enjoy!
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Figma
+- DrawSQL
+- GitHub
+- Next.js, React, Node.js
+- JavaScript, TypeScript
+- HTML, CSS
+- PostgreSQL
+- Cloudinary REST API
+- Tailwind, DaisyUI
+- Playwright, Jest
+- Fly.io
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+This is to give you a glimpse of the application:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Page](public/images/landingpage.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Page](public/images/signup_login_section.png)
+
+![Dashboard page](public/images/dashboard.png)
