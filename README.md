@@ -36,8 +36,8 @@ Enjoy!
 
 This is to give you a glimpse of the application:
 
-![Page](public/images/landingpage.png)
+![Landing page](public/images/landingpage.png)
 
-![Page](public/images/signup_login_section.png)
+![Landing page](public/images/signup.png)
 
 ![Dashboard page](public/images/dashboard.png)
