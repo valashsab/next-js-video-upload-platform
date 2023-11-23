@@ -3,6 +3,11 @@ import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../database/sessions';
 import LoginForm from './LoginForm';
 
+export const metadata = {
+  title: 'Login',
+  description: '1 more step until adding to your video collection',
+};
+
 type Props = { searchParams: { returnTo?: string | string[] } };
 
 export default async function LoginPage({ searchParams }: Props) {

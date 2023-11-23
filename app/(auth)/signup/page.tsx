@@ -3,6 +3,11 @@ import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../database/sessions';
 import SignupForm from './SignupForm';
 
+export const metadata = {
+  title: 'Sign up',
+  description: 'then you are good to go to start uploading videos',
+};
+
 export default async function SignUpPage() {
   // Task: Add redirect to home if user is logged in
   // 1. Checking if the sessionToken cookie exists

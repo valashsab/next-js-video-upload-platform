@@ -6,6 +6,11 @@ import { Video } from '../../../migrations/00002-createTableVideos';
 import { getUserBySessionToken } from '../../database/users';
 import { getVideosByUserId } from '../../database/videos';
 
+export const metadata = {
+  title: 'Memento video collection',
+  description: 'Your own digital video album',
+};
+
 export type VideosProps = {
   videos: Video[];
 };

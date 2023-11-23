@@ -7,6 +7,11 @@ import { getUserBySessionToken } from '../../../database/users';
 import { getSingleVideoByUserIdVideoId } from '../../../database/videos';
 import DeleteSingleVideo from './DeleteSingleVideo';
 
+export const metadata = {
+  title: 'Memento video',
+  description: 'Relive, rewatch and share your memories',
+};
+
 export type SingleVideosProps = {
   params: {
     videoId: number;

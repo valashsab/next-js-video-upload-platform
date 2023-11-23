@@ -4,6 +4,11 @@ import Link from 'next/link';
 // import { User } from '../migrations/00000-createTableUsers';
 import { getUserBySessionToken } from './database/users';
 
+export const metadata = {
+  title: 'Welcome to Memento',
+  description: 'Relive your memories',
+};
+
 export default async function DashboardPage() {
   // 1. Checking if the sessionToken cookie exists
   const cookieStore = cookies();
