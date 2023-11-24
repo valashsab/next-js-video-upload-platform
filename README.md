@@ -41,3 +41,7 @@ This is to give you a glimpse of the application:
 ![Landing page](public/images/signup.png)
 
 ![Dashboard page](public/images/dashboard.png)
+
+![Videos page](public/images/videospage_overview.png)
+
+![SingleVideos page](public/images/dynamicpage.png)
