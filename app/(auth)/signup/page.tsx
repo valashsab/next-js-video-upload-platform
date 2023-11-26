@@ -9,7 +9,6 @@ export const metadata = {
 };
 
 export default async function SignUpPage() {
-  // Task: Add redirect to home if user is logged in
   // 1. Checking if the sessionToken cookie exists
   const sessionTokenCookie = cookies().get('sessionToken');
 

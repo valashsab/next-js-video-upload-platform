@@ -25,8 +25,6 @@ export async function POST(
 ): Promise<NextResponse<LoginResponseBodyPost>> {
   // Task: Implement the user login workflow
 
-  // 5. Return the logged in user
-
   // 1. Get the user data from the request
   const body = await request.json();
 

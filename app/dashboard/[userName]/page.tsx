@@ -20,7 +20,6 @@ export default async function UserDashboardPage({ params }: Props) {
   const user =
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
-  // added 14.11.23
   if (!sessionToken) {
     return redirect(`/login?returnTo=/login/${params.userName}`);
   }
