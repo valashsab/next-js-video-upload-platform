@@ -24,12 +24,19 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen relative">
         <Image
           src="/images/colorful-sunset.jpg"
-          layout="fill"
-          objectFit="cover"
+          // layout="fill"
+          // objectFit="cover"
+          width={2828}
+          height={1547}
           alt="colorful sunset"
           priority
           className="responsive"
-          style={{ opacity: 0.7 }}
+          style={{
+            opacity: 0.7,
+            objectFit: 'cover',
+            width: '100%',
+            height: '100%',
+          }}
         />
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
