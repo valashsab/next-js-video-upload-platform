@@ -24,8 +24,8 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen relative">
         <Image
           src="/images/colorful-sunset.jpg"
-          width="2828"
-          height="1547"
+          layout="fill"
+          objectFit="cover"
           alt="colorful sunset"
           priority
           className="responsive"
