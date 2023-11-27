@@ -30,10 +30,11 @@ export default async function DashboardPage() {
           height="1547"
           alt="colorful sunset"
           priority
-          className="responsive cover fill opacity-70"
-          // style={{
-          //   opacity: 0.7,
-          // }}
+          className="responsive"
+          style={{
+            opacity: 0.7,
+            objectFit: 'cover',
+          }}
         />
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
