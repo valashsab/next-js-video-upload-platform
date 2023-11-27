@@ -26,8 +26,8 @@ export default async function DashboardPage() {
           src="/images/colorful-sunset.jpg"
           // layout="fill"
           // objectFit="cover"
-          width={2828}
-          height={1547}
+          width="2828"
+          height="1547"
           alt="colorful sunset"
           priority
           className="responsive"
