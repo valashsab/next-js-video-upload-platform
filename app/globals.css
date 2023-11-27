@@ -27,3 +27,12 @@ h2 {
 .light-weight {
   font-weight: var(--font-weight-300);
 }
+
+.cover {
+  object-fit: cover;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
