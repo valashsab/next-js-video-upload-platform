@@ -93,7 +93,11 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
                 {singleVideos.descriptionContent}
               </p>
               {/* functionality in the progress */}
-              <DeleteSingleVideo /> {/* future functionality  */}
+              <DeleteSingleVideo
+                videoId={props.params.videoId}
+                userId={props.params.userId}
+              />{' '}
+              {/* future functionality  */}
               <button className="btn btn-primary mt-2">Edit</button>
               {/* </div> */}
             </div>
