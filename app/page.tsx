@@ -81,13 +81,18 @@ export default async function DashboardPage() {
                 priority
                 className="responsive mb-4 lg:mb-0 lg:mr-4"
               />
-              <div className="flex flex-col">
+              {/* <div className="flex flex-col"> */}
+              {/* <div className="flex flex-col relative"> */}
+              <div className="absolute bottom-0 right-0 mb-4 lg:mb-0.5 lg:mr-20">
                 <textarea
                   placeholder="Leave a comment"
-                  className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs mb-2 lg:mb-4 lg:mr-2 lg:mt-20 lg:ml-0.1"
+                  // className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs mb-2 lg:mb-4 lg:mr-2 lg:mt-20 lg:ml-0.1"
+                  className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs"
                 />
                 {/* <button className="btn absolute top-60 right-30"> */}
-                <button className="btn absolute mb-4 lg:mb-5 lg:mr-2">
+                {/* <button className="btn absolute  mb-4 lg:mb-5 lg:mr-2"> */}
+                <button className="btn absolute bottom-0 right-0 mb-4 lg:mb-5 lg:mr-2">
+                  {/* <button className="btn mt-2"> */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -110,9 +115,10 @@ export default async function DashboardPage() {
 
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8 ">
             <h1 className="text-8xl text-black font-bold">Show appreciation</h1>
-            <p className="py-6 text-black text-xl">
+            {/* <p className="py-6 text-black text-xl> */}
+            <div className="py-6 text-black text-xl max-w-screen-md overflow-x-auto lg:max-w-screen-xl">
               Share your thoughts. Like the videos and leave comments.
-            </p>
+            </div>
           </div>
         </div>
       </div>

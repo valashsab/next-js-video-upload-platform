@@ -79,3 +79,13 @@ export const getUserBySessionToken = cache(async (token: string) => {
   `;
   return user;
 });
+
+export const getTotalUsersCount = cache(async () => {
+  const [{ count }] = await Promise.resolve(sql<{ count: number }>`
+    SELECT
+      COUNT(*) AS number_of_total_users
+    FROM
+      users
+  `);
+  return count || 0;
+});
