@@ -97,9 +97,11 @@ export default function UploadForm(props: Props) {
       {/* 1a.upload */}
       <div className="row-start-1 col-start-1">
         <ul className="steps steps-vertical">
-          <li className="step step-primary">Upload & Preview</li>
-          <li className="step">Add video details</li>
-          <li className="step">Post video</li>
+          <li className="step step-primary text-black font-bold ">
+            Upload & Preview
+          </li>
+          <li className="step text-black">Add video details</li>
+          <li className="step text-black">Post video</li>
         </ul>
       </div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -165,9 +167,11 @@ export default function UploadForm(props: Props) {
       <div className="row-start-2 col-start-1 space-y-0 mt-5 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
         {' '}
         <ul className="steps steps-vertical">
-          <li className="step">Upload & Preview</li>
-          <li className="step step-primary">Add video details</li>
-          <li className="step step-primary">Post video</li>
+          <li className="step text-black">Upload & Preview</li>
+          <li className="step step-primary text-black font-bold">
+            Add video details
+          </li>
+          <li className="step step-primary text-black font-bold">Post video</li>
         </ul>
       </div>
 
@@ -198,7 +202,7 @@ export default function UploadForm(props: Props) {
             <form className="space-y-6" onSubmit={handleAddedVideoData}>
               <div className="mt-2 ">
                 <label
-                  className="block text-sm font-medium leading-6 text-white"
+                  className="block text-sm font-medium leading-6 text-black"
                   htmlFor="title"
                 >
                   Title
@@ -217,7 +221,7 @@ export default function UploadForm(props: Props) {
               <br />
               <div className="mt-2">
                 <label
-                  className="block text-sm font-medium leading-6 text-white"
+                  className="block text-sm font-medium leading-6 text-black"
                   htmlFor="descriptionContent"
                 >
                   Description

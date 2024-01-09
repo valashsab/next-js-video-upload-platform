@@ -26,7 +26,7 @@ export default async function UserDashboardPage({ params }: Props) {
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col justify-center items-center space-y-6">
       <div className="text-center mb-4">
-        <h1 className="font-bold text-white text-6xl leading-9 tracking-tight text-center mt-10">
+        <h1 className="font-bold text-black text-6xl leading-9 tracking-tight text-center mt-10">
           Welcome to your dashboard,{' '}
           {params.userName
             ? params.userName.charAt(0).toUpperCase() + params.userName.slice(1)
