@@ -58,7 +58,7 @@ export default function LoginForm(props: Props) {
           src="/images/user-icon.png"
           width="50"
           height="25"
-          alt="memento logo"
+          alt="user icon"
           priority
         />
         <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-white">

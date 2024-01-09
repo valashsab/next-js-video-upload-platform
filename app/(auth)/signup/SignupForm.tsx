@@ -59,7 +59,7 @@ export default function SignupForm() {
           src="/images/user-icon.png"
           width="50"
           height="25"
-          alt="memento logo"
+          alt="anonymous user icon"
           priority
           className="responsive"
         />

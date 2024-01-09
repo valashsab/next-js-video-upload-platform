@@ -64,7 +64,7 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
             src="/images/video-icon.png"
             width="50"
             height="25"
-            alt="memento logo"
+            alt="camera icon"
             priority
             className="responsive"
           />

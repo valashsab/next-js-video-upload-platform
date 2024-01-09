@@ -26,7 +26,7 @@ export default async function Header() {
             src="/images/frame.svg"
             width={200}
             height={150}
-            alt="memento logo"
+            alt="memento logo with black font and yellow-colored rewind symbols"
             priority
           />
         </Link>
@@ -43,7 +43,7 @@ export default async function Header() {
                 src="/images/hamburger_navbar.png"
                 width="50"
                 height="50"
-                alt="hamburger menu navbar"
+                alt="hamburger menu navbar with black three lines one below the other on a yellow background"
               />
             </label>
           </div>

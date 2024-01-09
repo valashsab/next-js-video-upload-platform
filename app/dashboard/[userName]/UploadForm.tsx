@@ -120,6 +120,7 @@ export default function UploadForm(props: Props) {
                   strokeWidth="2"
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
+                <title>information tag</title>
               </svg>
               Please select a file to upload.
             </p>
@@ -187,6 +188,7 @@ export default function UploadForm(props: Props) {
                   strokeWidth="2"
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
+                <title>information tag</title>
               </svg>
               Form is disabled unless a file is uploaded.
             </p>

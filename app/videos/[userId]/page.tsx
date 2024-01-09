@@ -44,7 +44,7 @@ export default async function VideosPage(props: VideosProps) {
               src="/images/press-button.png"
               width="50"
               height="25"
-              alt="memento logo"
+              alt="hand icon pointing towards videos gallery or text"
               priority
               style={{ transform: 'rotate(-180deg)' }}
               className="responsive"
