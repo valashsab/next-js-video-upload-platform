@@ -77,7 +77,7 @@ export default function LoginForm(props: Props) {
               className="block text-lg first-letter:font-medium leading-6 text-white"
               htmlFor="userName"
             >
-              User name
+              User name <span className="text-red-500">*</span>
             </label>
             <div className="mt-2">
               <input
@@ -86,6 +86,7 @@ export default function LoginForm(props: Props) {
                 name="userName"
                 onChange={(event) => setUserName(event.currentTarget.value)}
                 required
+                aria-required="true"
               />
             </div>
             {errors.map((error) =>
@@ -105,7 +106,7 @@ export default function LoginForm(props: Props) {
                 className="block text-lg font-medium leading-6 text-white"
                 htmlFor="password"
               >
-                Password
+                Password <span className="text-red-500">*</span>
               </label>
               <div className="mt-2">
                 <input
@@ -115,6 +116,7 @@ export default function LoginForm(props: Props) {
                   name="password"
                   onChange={(event) => setPassword(event.currentTarget.value)}
                   required
+                  aria-required="true"
                 />
               </div>
             </div>

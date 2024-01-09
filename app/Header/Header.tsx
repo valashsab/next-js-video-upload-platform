@@ -15,6 +15,8 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
+    // added 09.01.24
+
     <div className="navbar bg-custom-bg flex items-center">
       {/* <div className="navbar bg-custom-bg"> */}
 

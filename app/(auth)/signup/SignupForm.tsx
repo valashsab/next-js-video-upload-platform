@@ -80,7 +80,7 @@ export default function SignupForm() {
                 className="block text-lg font-medium leading-6 text-white"
                 htmlFor="userName"
               >
-                User name
+                User name <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -91,6 +91,7 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setUserName(event.currentTarget.value)}
                 required
+                aria-required="true"
               />
             </div>
           </div>
@@ -101,7 +102,7 @@ export default function SignupForm() {
                 className="block text-lg font-medium leading-6 text-white"
                 htmlFor="firstName"
               >
-                First name
+                First name <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -112,6 +113,7 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setFirstName(event.currentTarget.value)}
                 required
+                aria-required="true"
               />
             </div>
           </div>
@@ -122,7 +124,7 @@ export default function SignupForm() {
                 className="block text-lg font-medium leading-6 text-white"
                 htmlFor="lastName"
               >
-                Last name
+                Last name <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -133,6 +135,7 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setLastName(event.currentTarget.value)}
                 required
+                aria-required="true"
               />
             </div>
           </div>
@@ -143,7 +146,7 @@ export default function SignupForm() {
                 className="block text-lg font-medium leading-6 text-white"
                 htmlFor="email"
               >
-                Email{' '}
+                Email <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -154,6 +157,7 @@ export default function SignupForm() {
                 name="email"
                 onChange={(event) => setEmail(event.currentTarget.value)}
                 required
+                aria-required="true"
               />
             </div>
           </div>
@@ -164,7 +168,7 @@ export default function SignupForm() {
                 className="block text-lg font-medium leading-6 text-white"
                 htmlFor="password"
               >
-                Password{' '}
+                Password <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -176,6 +180,7 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setPassword(event.currentTarget.value)}
                 required
+                aria-required="true"
               />
             </div>
           </div>
