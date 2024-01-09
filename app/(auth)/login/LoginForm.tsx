@@ -87,6 +87,7 @@ export default function LoginForm(props: Props) {
                 onChange={(event) => setUserName(event.currentTarget.value)}
                 required
                 aria-required="true"
+                aria-label="User name"
               />
             </div>
             {errors.map((error) =>
@@ -117,6 +118,7 @@ export default function LoginForm(props: Props) {
                   onChange={(event) => setPassword(event.currentTarget.value)}
                   required
                   aria-required="true"
+                  aria-label="Password"
                 />
               </div>
             </div>

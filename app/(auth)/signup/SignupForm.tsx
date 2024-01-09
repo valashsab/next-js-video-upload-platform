@@ -92,6 +92,7 @@ export default function SignupForm() {
                 onChange={(event) => setUserName(event.currentTarget.value)}
                 required
                 aria-required="true"
+                aria-label="User name"
               />
             </div>
           </div>
@@ -114,6 +115,7 @@ export default function SignupForm() {
                 onChange={(event) => setFirstName(event.currentTarget.value)}
                 required
                 aria-required="true"
+                aria-label="First name"
               />
             </div>
           </div>
@@ -136,6 +138,7 @@ export default function SignupForm() {
                 onChange={(event) => setLastName(event.currentTarget.value)}
                 required
                 aria-required="true"
+                aria-label="Last name"
               />
             </div>
           </div>
@@ -158,6 +161,7 @@ export default function SignupForm() {
                 onChange={(event) => setEmail(event.currentTarget.value)}
                 required
                 aria-required="true"
+                aria-label="Email"
               />
             </div>
           </div>
@@ -181,6 +185,7 @@ export default function SignupForm() {
                 onChange={(event) => setPassword(event.currentTarget.value)}
                 required
                 aria-required="true"
+                aria-label="Password"
               />
             </div>
           </div>
