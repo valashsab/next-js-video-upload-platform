@@ -63,7 +63,7 @@ export default function SignupForm() {
           priority
           className="responsive"
         />
-        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-white">
+        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-neutral">
           Sign in to your account
         </h1>
       </div>
@@ -77,7 +77,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="userName"
               >
                 User name <span className="text-red-500">*</span>
@@ -100,7 +100,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="firstName"
               >
                 First name <span className="text-red-500">*</span>
@@ -123,7 +123,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="lastName"
               >
                 Last name <span className="text-red-500">*</span>
@@ -146,7 +146,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="email"
               >
                 Email <span className="text-red-500">*</span>
@@ -169,7 +169,7 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="password"
               >
                 Password <span className="text-red-500">*</span>
@@ -191,7 +191,7 @@ export default function SignupForm() {
           </div>
 
           <div className="mt-10">
-            <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-neutral shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Sign up
             </button>
           </div>
@@ -205,11 +205,11 @@ export default function SignupForm() {
             </div>
           ))}
         </form>
-        <p className="mt-10 text-center text-base text-gray-500">
+        <p className="mt-10 text-center text-base text-neutral">
           You already created a user?{' '}
           <Link
             href="/login"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700"
           >
             Login here
           </Link>

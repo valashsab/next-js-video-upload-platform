@@ -26,11 +26,12 @@ export default async function Header() {
             src="/images/frame.svg"
             width={200}
             height={150}
-            alt="memento logo with black font and yellow-colored rewind symbols"
+            alt="memento logo"
             priority
           />
         </Link>
       </div>
+
       <div className="flex-none">
         <div className="drawer drawer-end">
           <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -43,7 +44,7 @@ export default async function Header() {
                 src="/images/hamburger_navbar.png"
                 width="50"
                 height="50"
-                alt="hamburger menu navbar with black three lines one below the other on a yellow background"
+                alt="hamburger menu navbar"
               />
             </label>
           </div>
@@ -64,7 +65,7 @@ export default async function Header() {
                   <li>
                     {' '}
                     <Link
-                      className="text-white"
+                      className="text-black"
                       href={`/dashboard/${user.userName}`}
                     >
                       Dashboard

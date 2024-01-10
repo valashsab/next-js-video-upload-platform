@@ -36,14 +36,17 @@ export default async function DashboardPage() {
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
           <div className="max-w-md">
-            <h1 className="mb-5 text-8xl font-bold">Relive your memories</h1>
-            <h2 className="mb-5 text-2xl font-semibold">
+            <h1 className="mb-5 text-8xl font-bold bg-gray">
+              Relive your memories
+            </h1>
+            <h2 className="mb-5 text-2xl font-extrabold">
               Videos kept as a reminder of unforgettable moments
             </h2>
           </div>
         </div>
       </div>
       {/* 2.segment: upload & rewatch */}
+
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
@@ -207,7 +210,7 @@ export default async function DashboardPage() {
                       <Link href={`/dashboard/${user.userName}`}>
                         <div>
                           <div className="mt-5">
-                            <button className="justify-center rounded-md btn-primary px-4 py-2 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <button className="justify-center rounded-md btn-primary px-4 py-2 text-lg font-semibold leading-6 text-custom-bg2 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                               Dashboard
                             </button>
                           </div>

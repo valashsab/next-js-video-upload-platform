@@ -135,6 +135,9 @@ export default function UploadForm(props: Props) {
               onSubmit={handleUpload}
               className="text-center row-start-1 col-start-2"
             >
+              <label htmlFor="file" className="sr-only">
+                Upload a video
+              </label>
               <input
                 type="file"
                 name="file"
@@ -144,7 +147,7 @@ export default function UploadForm(props: Props) {
                 onChange={handleFileChange}
                 data-test-id="file-input"
               />{' '}
-              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5">
+              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-info shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5">
                 Upload
               </button>
             </form>
@@ -243,7 +246,7 @@ export default function UploadForm(props: Props) {
               {/* 3.post video */}
               <div className="row-start-3 col-start-2">
                 <button
-                  className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-info shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   disabled={!selectedFile}
                 >
                   Post video

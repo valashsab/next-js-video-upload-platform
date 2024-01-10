@@ -61,7 +61,7 @@ export default function LoginForm(props: Props) {
           alt="user icon"
           priority
         />
-        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-white">
+        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-neutral">
           Login to your account
         </h1>
       </div>
@@ -74,7 +74,7 @@ export default function LoginForm(props: Props) {
         >
           <div>
             <label
-              className="block text-lg first-letter:font-medium leading-6 text-white"
+              className="block text-lg first-letter:font-medium leading-6 text-neutral"
               htmlFor="userName"
             >
               User name <span className="text-red-500">*</span>
@@ -104,7 +104,7 @@ export default function LoginForm(props: Props) {
           <div>
             <div className="mt-2">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="password"
               >
                 Password <span className="text-red-500">*</span>
@@ -123,7 +123,7 @@ export default function LoginForm(props: Props) {
               </div>
             </div>
             <div className="mt-10">
-              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-neutral shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Login
               </button>
             </div>
@@ -138,11 +138,11 @@ export default function LoginForm(props: Props) {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-base text-gray-500">
+        <p className="mt-10 text-center text-base text-neutral">
           Not yet a user?{' '}
           <Link
             href="/signup"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700"
           >
             Sign up here
           </Link>
