@@ -89,8 +89,11 @@ export default async function DashboardPage() {
               <div className="absolute bottom-0 right-0 mb-4 lg:mb-0.5 lg:mr-20">
                 <textarea
                   placeholder="Leave a comment"
+                  aria-label="field to leave a comment"
                   // className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs mb-2 lg:mb-4 lg:mr-2 lg:mt-20 lg:ml-0.1"
                   className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs"
+                  disabled
+                  autoComplete="off"
                 />
                 {/* <button className="btn absolute top-60 right-30"> */}
                 {/* <button className="btn absolute  mb-4 lg:mb-5 lg:mr-2"> */}
@@ -130,14 +133,19 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen bg-base-200 flex flex-col items-center justify-center">
         <div className="hero-content text-center">
           <div className="max-w-md mb-8">
-            <h1 className="text-8xl font-bold">
+            <h1 className="text-8xl font-bold text-white">
               Put together your own collection
             </h1>
           </div>
         </div>
         <div className="carousel carousel-center rounded-box">
           <div className="carousel-item">
-            <video className="rounded-box" width="620" height="540" controls>
+            <video
+              className="rounded-box border-white border-4 font-extrabold"
+              width="620"
+              height="540"
+              controls
+            >
               <source src="./videos/timelapse_london.mp4" type="video/mp4" />
               <track kind="captions" label="Timelapse from London city" />
               Your browser does not support the video tag.
