@@ -58,10 +58,10 @@ export default function LoginForm(props: Props) {
           src="/images/user-icon.png"
           width="50"
           height="25"
-          alt="memento logo"
+          alt="user icon"
           priority
         />
-        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-white">
+        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-neutral">
           Login to your account
         </h1>
       </div>
@@ -74,10 +74,10 @@ export default function LoginForm(props: Props) {
         >
           <div>
             <label
-              className="block text-lg first-letter:font-medium leading-6 text-white"
+              className="block text-lg first-letter:font-medium leading-6 text-neutral"
               htmlFor="userName"
             >
-              User name
+              User name <span className="text-red-500">*</span>
             </label>
             <div className="mt-2">
               <input
@@ -86,6 +86,8 @@ export default function LoginForm(props: Props) {
                 name="userName"
                 onChange={(event) => setUserName(event.currentTarget.value)}
                 required
+                aria-required="true"
+                aria-label="login user name"
               />
             </div>
             {errors.map((error) =>
@@ -102,10 +104,10 @@ export default function LoginForm(props: Props) {
           <div>
             <div className="mt-2">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="password"
               >
-                Password
+                Password <span className="text-red-500">*</span>
               </label>
               <div className="mt-2">
                 <input
@@ -115,11 +117,13 @@ export default function LoginForm(props: Props) {
                   name="password"
                   onChange={(event) => setPassword(event.currentTarget.value)}
                   required
+                  aria-required="true"
+                  aria-label="login Password"
                 />
               </div>
             </div>
             <div className="mt-10">
-              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-neutral shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                 Login
               </button>
             </div>
@@ -134,11 +138,12 @@ export default function LoginForm(props: Props) {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-base text-gray-500">
+        <p className="mt-10 text-center text-base text-neutral">
           Not yet a user?{' '}
           <Link
             href="/signup"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700"
+            aria-label="Sign up here"
           >
             Sign up here
           </Link>

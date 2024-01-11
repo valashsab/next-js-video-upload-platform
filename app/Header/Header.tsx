@@ -15,6 +15,8 @@ export default async function Header() {
     sessionToken && (await getUserBySessionToken(sessionToken.value));
 
   return (
+    // added 09.01.24
+
     <div className="navbar bg-custom-bg flex items-center">
       {/* <div className="navbar bg-custom-bg"> */}
 
@@ -29,9 +31,15 @@ export default async function Header() {
           />
         </Link>
       </div>
+
       <div className="flex-none">
         <div className="drawer drawer-end">
-          <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+          <input
+            id="my-drawer-4"
+            type="checkbox"
+            className="drawer-toggle"
+            aria-label="menu icon"
+          />
           <div className="drawer-content">
             <label
               htmlFor="my-drawer-4"
@@ -54,7 +62,7 @@ export default async function Header() {
             <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
               {user ? (
                 <>
-                  <li className="text-black bg-primary mt-2 rounded p-2">
+                  <li className="text-black bg-primary mt-2 rounded p-2 font-bold">
                     {' '}
                     {user.userName.charAt(0).toUpperCase() +
                       user.userName.slice(1)}
@@ -62,7 +70,7 @@ export default async function Header() {
                   <li>
                     {' '}
                     <Link
-                      className="text-white"
+                      className="text-white font-bold"
                       href={`/dashboard/${user.userName}`}
                     >
                       Dashboard
@@ -70,13 +78,13 @@ export default async function Header() {
                   </li>
                   <li>
                     <Link
-                      className="text-white"
+                      className="text-white font-bold"
                       href={`/videos/${user.userName}`}
                     >
                       Videos
                     </Link>
                   </li>
-                  <li className="text-white">
+                  <li className="text-white font-bold">
                     <LogoutButton />
                   </li>
                 </>

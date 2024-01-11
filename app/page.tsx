@@ -36,14 +36,17 @@ export default async function DashboardPage() {
         <div className="hero-overlay bg-custom-bg bg-opacity-50" />
         <div className="hero-content text-center text-black">
           <div className="max-w-md">
-            <h1 className="mb-5 text-8xl font-bold">Relive your memories</h1>
-            <h2 className="mb-5 text-2xl font-semibold">
+            <h1 className="mb-5 text-8xl font-bold bg-gray">
+              Relive your memories
+            </h1>
+            <h2 className="mb-5 text-2xl font-extrabold">
               Videos kept as a reminder of unforgettable moments
             </h2>
           </div>
         </div>
       </div>
       {/* 2.segment: upload & rewatch */}
+
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-left max-h-screen max-w-screen-xl mx-auto mt-8 mb-8">
@@ -77,7 +80,7 @@ export default async function DashboardPage() {
                 src="/images/woman-car.jpg"
                 width={400}
                 height={350}
-                alt="memento logo"
+                alt="women in car taking a picture"
                 priority
                 className="responsive mb-4 lg:mb-0 lg:mr-4"
               />
@@ -86,8 +89,11 @@ export default async function DashboardPage() {
               <div className="absolute bottom-0 right-0 mb-4 lg:mb-0.5 lg:mr-20">
                 <textarea
                   placeholder="Leave a comment"
+                  aria-label="field to leave a comment"
                   // className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs mb-2 lg:mb-4 lg:mr-2 lg:mt-20 lg:ml-0.1"
                   className="bg-info textarea textarea-bordered textarea-lg w-full max-w-xs"
+                  disabled
+                  autoComplete="off"
                 />
                 {/* <button className="btn absolute top-60 right-30"> */}
                 {/* <button className="btn absolute  mb-4 lg:mb-5 lg:mr-2"> */}
@@ -106,6 +112,7 @@ export default async function DashboardPage() {
                       strokeWidth="2"
                       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                     />
+                    <title>Like button</title>
                   </svg>
                   Like
                 </button>
@@ -126,14 +133,19 @@ export default async function DashboardPage() {
       <div className="hero min-h-screen bg-base-200 flex flex-col items-center justify-center">
         <div className="hero-content text-center">
           <div className="max-w-md mb-8">
-            <h1 className="text-8xl font-bold">
+            <h1 className="text-8xl font-bold text-white">
               Put together your own collection
             </h1>
           </div>
         </div>
         <div className="carousel carousel-center rounded-box">
           <div className="carousel-item">
-            <video className="rounded-box" width="620" height="540" controls>
+            <video
+              className="rounded-box border-white border-4 font-extrabold"
+              width="620"
+              height="540"
+              controls
+            >
               <source src="./videos/timelapse_london.mp4" type="video/mp4" />
               <track kind="captions" label="Timelapse from London city" />
               Your browser does not support the video tag.
@@ -206,7 +218,7 @@ export default async function DashboardPage() {
                       <Link href={`/dashboard/${user.userName}`}>
                         <div>
                           <div className="mt-5">
-                            <button className="justify-center rounded-md btn-primary px-4 py-2 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            <button className="justify-center rounded-md btn-primary px-4 py-2 text-lg font-semibold leading-6 text-custom-bg2 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                               Dashboard
                             </button>
                           </div>
@@ -245,6 +257,7 @@ export default async function DashboardPage() {
                 viewBox="0 0 24 24"
                 className="inline-block w-8 h-8 stroke-current"
               >
+                <title>information icon in</title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -266,6 +279,7 @@ export default async function DashboardPage() {
                 viewBox="0 0 24 24"
                 className="inline-block w-8 h-8 stroke-current"
               >
+                <title>regulator icon </title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -287,6 +301,7 @@ export default async function DashboardPage() {
                 viewBox="0 0 24 24"
                 className="inline-block w-8 h-8 stroke-current"
               >
+                <title>form icon </title>
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

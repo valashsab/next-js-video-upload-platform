@@ -59,11 +59,11 @@ export default function SignupForm() {
           src="/images/user-icon.png"
           width="50"
           height="25"
-          alt="memento logo"
+          alt="anonymous user icon"
           priority
           className="responsive"
         />
-        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-white">
+        <h1 className="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-neutral">
           Sign in to your account
         </h1>
       </div>
@@ -77,10 +77,10 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="userName"
               >
-                User name
+                User name <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -91,6 +91,8 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setUserName(event.currentTarget.value)}
                 required
+                aria-required="true"
+                aria-label="User name"
               />
             </div>
           </div>
@@ -98,10 +100,10 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="firstName"
               >
-                First name
+                First name <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -112,6 +114,8 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setFirstName(event.currentTarget.value)}
                 required
+                aria-required="true"
+                aria-label="First name"
               />
             </div>
           </div>
@@ -119,10 +123,10 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="lastName"
               >
-                Last name
+                Last name <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -133,6 +137,8 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setLastName(event.currentTarget.value)}
                 required
+                aria-required="true"
+                aria-label="Last name"
               />
             </div>
           </div>
@@ -140,10 +146,10 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="email"
               >
-                Email{' '}
+                Email <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -154,6 +160,8 @@ export default function SignupForm() {
                 name="email"
                 onChange={(event) => setEmail(event.currentTarget.value)}
                 required
+                aria-required="true"
+                aria-label="Email"
               />
             </div>
           </div>
@@ -161,10 +169,10 @@ export default function SignupForm() {
           <div>
             <div className="flex items-center justify-between">
               <label
-                className="block text-lg font-medium leading-6 text-white"
+                className="block text-lg font-medium leading-6 text-neutral"
                 htmlFor="password"
               >
-                Password{' '}
+                Password <span className="text-red-500">*</span>
               </label>
             </div>
             <div className="mt-2">
@@ -176,12 +184,14 @@ export default function SignupForm() {
                 pattern="[A-Za-z]+"
                 onChange={(event) => setPassword(event.currentTarget.value)}
                 required
+                aria-required="true"
+                aria-label="Password"
               />
             </div>
           </div>
 
           <div className="mt-10">
-            <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-lg font-semibold leading-6 text-neutral shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
               Sign up
             </button>
           </div>
@@ -195,11 +205,11 @@ export default function SignupForm() {
             </div>
           ))}
         </form>
-        <p className="mt-10 text-center text-base text-gray-500">
+        <p className="mt-10 text-center text-base text-neutral">
           You already created a user?{' '}
           <Link
             href="/login"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-indigo-700 hover:text-indigo-700"
           >
             Login here
           </Link>

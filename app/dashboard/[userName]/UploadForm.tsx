@@ -97,9 +97,11 @@ export default function UploadForm(props: Props) {
       {/* 1a.upload */}
       <div className="row-start-1 col-start-1">
         <ul className="steps steps-vertical">
-          <li className="step step-primary">Upload & Preview</li>
-          <li className="step">Add video details</li>
-          <li className="step">Post video</li>
+          <li className="step step-primary text-black font-bold ">
+            Upload & Preview
+          </li>
+          <li className="step text-black">Add video details</li>
+          <li className="step text-black">Post video</li>
         </ul>
       </div>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -120,6 +122,7 @@ export default function UploadForm(props: Props) {
                   strokeWidth="2"
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
+                <title>information tag</title>
               </svg>
               Please select a file to upload.
             </p>
@@ -132,6 +135,9 @@ export default function UploadForm(props: Props) {
               onSubmit={handleUpload}
               className="text-center row-start-1 col-start-2"
             >
+              <label htmlFor="file" className="sr-only">
+                Upload a video
+              </label>
               <input
                 type="file"
                 name="file"
@@ -141,7 +147,7 @@ export default function UploadForm(props: Props) {
                 onChange={handleFileChange}
                 data-test-id="file-input"
               />{' '}
-              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5">
+              <button className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-info shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5">
                 Upload
               </button>
             </form>
@@ -164,9 +170,11 @@ export default function UploadForm(props: Props) {
       <div className="row-start-2 col-start-1 space-y-0 mt-5 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
         {' '}
         <ul className="steps steps-vertical">
-          <li className="step">Upload & Preview</li>
-          <li className="step step-primary">Add video details</li>
-          <li className="step step-primary">Post video</li>
+          <li className="step text-black">Upload & Preview</li>
+          <li className="step step-primary text-black font-bold">
+            Add video details
+          </li>
+          <li className="step step-primary text-black font-bold">Post video</li>
         </ul>
       </div>
 
@@ -187,6 +195,7 @@ export default function UploadForm(props: Props) {
                   strokeWidth="2"
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
+                <title>information tag</title>
               </svg>
               Form is disabled unless a file is uploaded.
             </p>
@@ -196,7 +205,7 @@ export default function UploadForm(props: Props) {
             <form className="space-y-6" onSubmit={handleAddedVideoData}>
               <div className="mt-2 ">
                 <label
-                  className="block text-sm font-medium leading-6 text-white"
+                  className="block text-sm font-medium leading-6 text-black"
                   htmlFor="title"
                 >
                   Title
@@ -215,7 +224,7 @@ export default function UploadForm(props: Props) {
               <br />
               <div className="mt-2">
                 <label
-                  className="block text-sm font-medium leading-6 text-white"
+                  className="block text-sm font-medium leading-6 text-black"
                   htmlFor="descriptionContent"
                 >
                   Description
@@ -237,7 +246,7 @@ export default function UploadForm(props: Props) {
               {/* 3.post video */}
               <div className="row-start-3 col-start-2">
                 <button
-                  className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md btn-primary px-3 py-1.5 text-sm font-semibold leading-6 text-info shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   disabled={!selectedFile}
                 >
                   Post video

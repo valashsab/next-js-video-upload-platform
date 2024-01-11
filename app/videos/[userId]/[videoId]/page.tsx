@@ -50,7 +50,7 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
   return (
     <div className="flex flex-col items-center justify-center bg-custom-bg">
       {' '}
-      <h1 className="text-center font-bold leading-9 tracking-tight text-white text-6xl mt-10">
+      <h1 className="text-center font-bold leading-9 tracking-tight text-black text-6xl mt-10">
         Relive your memories,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
@@ -64,7 +64,7 @@ export default async function SingleVideosPage(props: SingleVideosProps) {
             src="/images/video-icon.png"
             width="50"
             height="25"
-            alt="memento logo"
+            alt="camera icon"
             priority
             className="responsive"
           />

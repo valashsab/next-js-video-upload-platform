@@ -29,7 +29,7 @@ export default async function VideosPage(props: VideosProps) {
 
   return (
     <div className="bg-custom-bg min-h-screen flex flex-col  items-center">
-      <h1 className="bg-custom-bg text-center text-6xl font-bold leading-9 tracking-tight text-white mt-10">
+      <h1 className="bg-custom-bg text-center text-6xl font-bold leading-9 tracking-tight text-black mt-10">
         Welcome to your video collection,{' '}
         {user?.userName
           ? user.userName.charAt(0).toUpperCase() + user.userName.slice(1)
@@ -44,7 +44,7 @@ export default async function VideosPage(props: VideosProps) {
               src="/images/press-button.png"
               width="50"
               height="25"
-              alt="memento logo"
+              alt="hand icon pointing towards videos gallery or text"
               priority
               style={{ transform: 'rotate(-180deg)' }}
               className="responsive"
